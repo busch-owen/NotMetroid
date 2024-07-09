@@ -15,4 +15,4 @@ MonoBehaviour:
   <Health>k__BackingField: 100
   <Speed>k__BackingField: 10
   <JumpHeight>k__BackingField: 10
-  <Friction>k__BackingField: 10
+  <Friction>k__BackingField: 15
