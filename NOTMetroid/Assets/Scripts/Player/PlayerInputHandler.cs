@@ -14,6 +14,8 @@ public class PlayerInputHandler : MonoBehaviour
         
         _gameInput = new GameInput();
         _gameInput.PlayerMovement.Move.performed += i => _playerMovement.MovePlayer(i.ReadValue<Vector2>());
+        _gameInput.PlayerMovement.Jump.started += i => _playerMovement.TriggerJump();
+        _gameInput.PlayerMovement.Jump.canceled += i => _playerMovement.CancelJump();
         
         _gameInput.Enable();
     }
