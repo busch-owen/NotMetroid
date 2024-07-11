@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6277489799769331512}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61,7 +61,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groundDetectDistance: 1.1
-  groundDetectPos: {x: 0, y: -1}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
