@@ -12,7 +12,8 @@ public class Movement : MonoBehaviour
 
     [SerializeField] private float groundDetectDistance;
     [SerializeField] private LayerMask groundLayer;
-    [SerializeField] private StatsSo _stats;
+    [SerializeField] private EnemyStatsSo _stats;
+    [SerializeField] private float _lungeSpeed;
 
     private void Awake()
     {
@@ -21,15 +22,28 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        
+        
         Move();
         
         CheckApex();
         GroundCheck();
-
+        
         if (_jumping)
         {
             Jump();
         }
+        
+    }
+
+    public void LungeLeft()
+    {
+        _rb.velocity = new Vector2(_rb.velocity.y, _lungeSpeed * Time.fixedDeltaTime);
+    }
+
+    public void LungeRight()
+    {
+        _rb.velocity = new Vector2(-_rb.velocity.y, _lungeSpeed * Time.fixedDeltaTime);
     }
 
     private void Move()
@@ -62,6 +76,7 @@ public class Movement : MonoBehaviour
     public void Jump()
     {
         _rb.velocity = new Vector2(_rb.velocity.x, _stats.JumpSpeed * Time.fixedDeltaTime);
+        Debug.Log(_rb.velocity);
     }
 
     private void GroundCheck()
@@ -77,8 +92,6 @@ public class Movement : MonoBehaviour
             : _stats.MovingJumpHeight;   
         
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, height + 0.5f, groundLayer);
-         
-        Debug.Log(height);
         
         if (Vector2.Distance(transform.position, hit.point) > height)
         {

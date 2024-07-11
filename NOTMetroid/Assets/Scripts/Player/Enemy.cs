@@ -8,10 +8,10 @@ public class Enemy : MonoBehaviour
 {
     protected NavMeshAgent _agent;
     protected bool targetInRange;
-    protected bool inLungeRange;
+    protected bool inLungeRange = true;
    [SerializeField] protected float detectionRange;
-   [SerializeField] protected float speed;
-    protected StatsSo _enemyStats;
+[SerializeField] protected float speed;   
+    [SerializeField] EnemyStatsSo _enemyStats;
     [SerializeField] protected Transform target;
     [SerializeField] protected float lungeRange;
     protected Movement _movement;
@@ -22,18 +22,28 @@ public class Enemy : MonoBehaviour
     {
         _agent = GetComponent<NavMeshAgent>();
         _agent.updateRotation = false;
+        _agent.updateUpAxis = false;
         _agent.speed = _enemyStats.Speed;
         target = FindObjectOfType<PlayerMovement>().transform;
+        _movement = GetComponent<Movement>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        _agent.updateRotation = false;
+        
     }
 
     private void FixedUpdate()
     {
+        
+        Vector3 localDir = Quaternion.Inverse(transform.rotation) * (target.transform.position - transform.position);
+        
+        bool isForward = localDir.z > 0;
+        bool isUp = localDir.y > 0;
+        bool isRight = localDir.x > 0;
+        bool isLeft = localDir.x < 0;
+        
         float distance = Vector3.Distance(target.position, this.transform.position);
 
         float lungeDistance = Vector3.Distance(target.position, this.transform.position );
@@ -55,8 +65,17 @@ public class Enemy : MonoBehaviour
 
         if (lungeDistance <= lungeRange && inLungeRange)
         {
-            _agent.speed = speed;
-            _movement.Jump();
+            if (isRight)
+            {
+                _movement.LungeRight();
+            }
+
+            if (isLeft)
+            {
+                _movement.LungeLeft();
+            }
+            //_movement.TriggerJump();
+            
             inLungeRange = false;
             Debug.Log("lunge = false");
         }
@@ -66,6 +85,8 @@ public class Enemy : MonoBehaviour
             inLungeRange = true;
             Debug.Log("lunge = true");
         }
+        
+        //try adding a time check if grounded and x amount of time passed set inLunge range to true
 
     }
 }

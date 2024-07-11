@@ -77,8 +77,6 @@ public class PlayerMovement : MonoBehaviour
             : characterStats.MovingJumpHeight;   
         
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, height + 0.5f, groundLayer);
-         
-        Debug.Log(height);
         
         if (Vector2.Distance(transform.position, hit.point) > height)
         {
