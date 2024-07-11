@@ -1,5 +1,3 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -13,12 +11,8 @@ public class PlayerMovement : MonoBehaviour
     private bool _grounded = true;
 
     [SerializeField] private float groundDetectDistance;
-
     [SerializeField] private Vector2 groundDetectPos;
-
     [SerializeField] private LayerMask groundLayer;
-
-    
     [SerializeField] private CharacterStatsSO characterStats;
 
     private void Awake()
@@ -36,10 +30,6 @@ public class PlayerMovement : MonoBehaviour
         if (_jumping)
         {
             Jump();
-        }
-        else
-        {
-            _rb.velocity = new Vector2(_rb.velocity.x, -characterStats.JumpSpeed * 0.5f * Time.fixedDeltaTime);
         }
     }
 
@@ -64,6 +54,9 @@ public class PlayerMovement : MonoBehaviour
 
     public void CancelJump()
     {
+        if (!_jumping) return;
+        
+        _rb.velocity = new Vector2(_rb.velocity.x, 0f);
         _jumping = false;
     }
 
@@ -80,11 +73,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void CheckApex()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, Mathf.Infinity, groundLayer);
-        if (Vector2.Distance(transform.position, hit.point) > characterStats.JumpHeight)
+        var height = Mathf.Approximately(_playerMovement, 0)
+            ? characterStats.StillJumpHeight
+            : characterStats.MovingJumpHeight;   
+        
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, height + 0.5f, groundLayer);
+         
+        Debug.Log(height);
+        
+        if (Vector2.Distance(transform.position, hit.point) > height)
         {
             _jumping = false;
-            CancelJump();
         }
     }
 
