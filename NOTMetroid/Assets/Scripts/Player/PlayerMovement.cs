@@ -11,7 +11,6 @@ public class PlayerMovement : MonoBehaviour
     private bool _grounded = true;
 
     [SerializeField] private float groundDetectDistance;
-    [SerializeField] private Vector2 groundDetectPos;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private CharacterStatsSO characterStats;
 
