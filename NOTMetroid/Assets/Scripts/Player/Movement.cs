@@ -36,6 +36,8 @@ public class Movement : MonoBehaviour
         
     }
 
+    #region Lunge
+    
     public void LungeLeft()
     {
         _rb.velocity = new Vector2(_rb.velocity.y, _lungeSpeed * Time.fixedDeltaTime);
@@ -46,6 +48,9 @@ public class Movement : MonoBehaviour
         _rb.velocity = new Vector2(-_rb.velocity.y, _lungeSpeed * Time.fixedDeltaTime);
     }
 
+    #endregion
+
+    #region Move
     private void Move()
     {
         var movement = new Vector2(Mathf.Lerp(_rb.velocity.x, _movement * _stats.Speed,
@@ -58,7 +63,10 @@ public class Movement : MonoBehaviour
     {
         _movement = movementV.x;
     }
+    
+    #endregion
 
+    #region Jump
     public void TriggerJump()
     {
         if (!_grounded) return;
@@ -78,6 +86,10 @@ public class Movement : MonoBehaviour
         _rb.velocity = new Vector2(_rb.velocity.x, _stats.JumpSpeed * Time.fixedDeltaTime);
         Debug.Log(_rb.velocity);
     }
+    
+    #endregion
+
+    #region Ground & Apex
 
     private void GroundCheck()
     {
@@ -99,6 +111,8 @@ public class Movement : MonoBehaviour
         }
     }
 
+    #endregion
+    
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;

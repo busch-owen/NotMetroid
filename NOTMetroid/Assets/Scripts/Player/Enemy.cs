@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected Transform target;
     [SerializeField] protected float lungeRange;
     protected Movement _movement;
+    private Rigidbody2D _rb;
     
     
     // Start is called before the first frame update
@@ -26,6 +27,7 @@ public class Enemy : MonoBehaviour
         _agent.speed = _enemyStats.Speed;
         target = FindObjectOfType<PlayerMovement>().transform;
         _movement = GetComponent<Movement>();
+        _rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -36,6 +38,7 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
+        #region directionCalculation
         
         Vector3 localDir = Quaternion.Inverse(transform.rotation) * (target.transform.position - transform.position);
         
@@ -43,11 +46,17 @@ public class Enemy : MonoBehaviour
         bool isUp = localDir.y > 0;
         bool isRight = localDir.x > 0;
         bool isLeft = localDir.x < 0;
+        #endregion
+
+        #region Distance Calculation
         
         float distance = Vector3.Distance(target.position, this.transform.position);
 
         float lungeDistance = Vector3.Distance(target.position, this.transform.position );
         
+        #endregion
+
+        #region InRangeFollow
         
         if (distance <= detectionRange)// detection range check, if within set radius between player and enemy then target is set.
         {
@@ -62,7 +71,11 @@ public class Enemy : MonoBehaviour
         {
             _agent.SetDestination(target.position);
         }
+        
+        #endregion
 
+        #region LungeCheck
+        
         if (lungeDistance <= lungeRange && inLungeRange)
         {
             if (isRight)
@@ -77,14 +90,14 @@ public class Enemy : MonoBehaviour
             //_movement.TriggerJump();
             
             inLungeRange = false;
-            Debug.Log("lunge = false");
         }
 
         if (lungeDistance >= lungeRange && !inLungeRange)
         {
             inLungeRange = true;
-            Debug.Log("lunge = true");
         }
+        
+        #endregion
         
         //try adding a time check if grounded and x amount of time passed set inLunge range to true
 

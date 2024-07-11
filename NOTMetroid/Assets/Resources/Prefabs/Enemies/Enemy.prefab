@@ -178,10 +178,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1000
   m_LinearDrag: 0
   m_AngularDrag: 0
-  m_GravityScale: 2
+  m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: 75d96ee9b2ba8624abb32d8aff7fef3a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -206,7 +206,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectionRange: 12
-  speed: 3
+  speed: 5
+  _enemyStats: {fileID: 11400000, guid: 05b101b0661b6fc42ad7012cab7bed38, type: 2}
   target: {fileID: 0}
   lungeRange: 6
 --- !u!114 &9104048703258649594
@@ -221,11 +222,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 148fc380c076f724d9ab76d1c4bd0249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundDetectDistance: 1.1
+  groundDetectDistance: 1.2
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  _stats: {fileID: 11400000, guid: 802641dff41bdaa498d6d2be2e0859fb, type: 2}
+  _stats: {fileID: 11400000, guid: 05b101b0661b6fc42ad7012cab7bed38, type: 2}
+  _lungeSpeed: 6
 --- !u!195 &3563546062772656559
 NavMeshAgent:
   m_ObjectHideFlags: 0

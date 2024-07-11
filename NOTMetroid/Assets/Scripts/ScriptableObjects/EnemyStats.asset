@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4a85c2819caa5a4abf3acaef9935047, type: 3}
   m_Name: EnemyStats
   m_EditorClassIdentifier: 
-  <Speed>k__BackingField: 0
+  <Health>k__BackingField: 100
+  <Speed>k__BackingField: 5
+  <StillJumpHeight>k__BackingField: 5
+  <MovingJumpHeight>k__BackingField: 4
+  <JumpSpeed>k__BackingField: 500
+  <Friction>k__BackingField: 7
