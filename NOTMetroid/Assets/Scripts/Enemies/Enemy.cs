@@ -6,35 +6,32 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    protected NavMeshAgent _agent;
     protected bool targetInRange;
     protected bool inLungeRange = true;
-   [SerializeField] protected float detectionRange;
-[SerializeField] protected float speed;   
+    [SerializeField] protected float detectionRange;
+    [SerializeField] protected float speed;   
     [SerializeField] EnemyStatsSo _enemyStats;
     [SerializeField] protected Transform target;
     [SerializeField] protected float lungeRange;
     protected Movement _movement;
     private Rigidbody2D _rb;
+    private bool invokeRunning = false;
     
     
     // Start is called before the first frame update
     void Start()
     {
-        _agent = GetComponent<NavMeshAgent>();
-        _agent.updateRotation = false;
-        _agent.updateUpAxis = false;
-        _agent.speed = _enemyStats.Speed;
         target = FindObjectOfType<PlayerMovement>().transform;
         _movement = GetComponent<Movement>();
         _rb = GetComponent<Rigidbody2D>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         
     }
+    
+    void Loop()
+    {
+        inLungeRange = true;
+    }
+    
 
     private void FixedUpdate()
     {
@@ -65,36 +62,38 @@ public class Enemy : MonoBehaviour
         else
         {
             targetInRange = false;
-        }
+            CancelInvoke("Loop");
+            invokeRunning = false;
 
-        if (target != null && targetInRange && _agent.isActiveAndEnabled)
-        {
-            _agent.SetDestination(target.position);
         }
         
         #endregion
 
         #region LungeCheck
-        
-        if (lungeDistance <= lungeRange && inLungeRange)
+
+        if (target != null && targetInRange)
+
         {
-            if (isRight)
+            if (!invokeRunning)
             {
-                _movement.LungeRight();
+                InvokeRepeating("Loop", 1, 2);
+                invokeRunning = true;
             }
 
-            if (isLeft)
-            {
-                _movement.LungeLeft();
-            }
-            //_movement.TriggerJump();
             
-            inLungeRange = false;
-        }
+            if (isRight && inLungeRange)
+            {
+                _movement.Jump();
+                _movement.LungeRight();
+                inLungeRange = false;
+            }
 
-        if (lungeDistance >= lungeRange && !inLungeRange)
-        {
-            inLungeRange = true;
+            if (isLeft && inLungeRange)
+            {
+                _movement.Jump();
+                _movement.LungeLeft();
+                inLungeRange = false;
+            }
         }
         
         #endregion
@@ -102,4 +101,5 @@ public class Enemy : MonoBehaviour
         //try adding a time check if grounded and x amount of time passed set inLunge range to true
 
     }
+    
 }

@@ -40,12 +40,14 @@ public class Movement : MonoBehaviour
     
     public void LungeLeft()
     {
-        _rb.velocity = new Vector2(_rb.velocity.y, _lungeSpeed * Time.fixedDeltaTime);
+        _rb.AddForce(-transform.right * _lungeSpeed, ForceMode2D.Impulse);
+        Debug.Log("Llunge");
     }
 
     public void LungeRight()
     {
-        _rb.velocity = new Vector2(-_rb.velocity.y, _lungeSpeed * Time.fixedDeltaTime);
+        _rb.AddForce(transform.right * _lungeSpeed, ForceMode2D.Impulse);
+        Debug.Log("Rlunge");
     }
 
     #endregion
