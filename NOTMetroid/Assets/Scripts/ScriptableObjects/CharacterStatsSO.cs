@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Character Stats", menuName = "AGOS/Stats", order = 1)]
+[CreateAssetMenu(fileName = "Character Stats", menuName = "AGOS/Stats/CharacterStats", order = 1)]
 public class CharacterStatsSO : ScriptableObject
 {
     [field: Header("Gameplay Stats")]

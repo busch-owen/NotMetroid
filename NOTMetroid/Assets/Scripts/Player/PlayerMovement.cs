@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private float _playerMovement;
 
     private bool _jumping;
-    private bool _grounded = true;
+    public bool Grounded { get; private set; } = true;
 
     [SerializeField] private float groundDetectDistance;
     [SerializeField] private LayerMask groundLayer;
@@ -25,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
         
         CheckApex();
         GroundCheck();
+        RoofCheck();
 
         if (_jumping)
         {
@@ -47,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void TriggerJump()
     {
-        if (!_grounded) return;
+        if (!Grounded) return;
         _jumping = true;
     }
 
@@ -67,7 +69,16 @@ public class PlayerMovement : MonoBehaviour
     private void GroundCheck()
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, groundDetectDistance, groundLayer);
-        _grounded = hit;
+        Grounded = hit;
+    }
+
+    private void RoofCheck()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, groundDetectDistance, groundLayer);
+        if (hit)
+        {
+            CancelJump();
+        }
     }
 
     private void CheckApex()
