@@ -32,6 +32,18 @@ public class Enemy : MonoBehaviour
         inLungeRange = true;
     }
     
+    void Right()
+    {
+        _movement.LungeRight();
+        inLungeRange = false;    
+    }
+
+    void Left()
+    {
+        _movement.LungeLeft();
+        inLungeRange = false;
+    }
+    
 
     private void FixedUpdate()
     {
@@ -83,16 +95,20 @@ public class Enemy : MonoBehaviour
             
             if (isRight && inLungeRange)
             {
-                _movement.Jump();
-                _movement.LungeRight();
-                inLungeRange = false;
+                if (_movement._grounded)
+                {
+                    _movement.Jump();
+                    Invoke("Right", 1.0f);
+                }
             }
 
             if (isLeft && inLungeRange)
             {
-                _movement.Jump();
-                _movement.LungeLeft();
-                inLungeRange = false;
+                if(_movement._grounded)
+                {
+                    _movement.Jump();
+                    Invoke("Left", 1.0f);
+                }
             }
         }
         

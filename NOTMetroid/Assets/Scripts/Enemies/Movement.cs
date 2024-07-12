@@ -8,7 +8,7 @@ public class Movement : MonoBehaviour
     private float _movement;
 
     private bool _jumping;
-    private bool _grounded = true;
+    public bool _grounded = true;
 
     [SerializeField] private float groundDetectDistance;
     [SerializeField] private LayerMask groundLayer;

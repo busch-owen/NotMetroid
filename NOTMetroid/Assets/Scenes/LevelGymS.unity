@@ -13970,7 +13970,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9104048703258649594, guid: 29b98d815e1477b48baa846ad62dd54a, type: 3}
       propertyPath: _lungeSpeed
-      value: 69
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3563546062772656559, guid: 29b98d815e1477b48baa846ad62dd54a, type: 3}
