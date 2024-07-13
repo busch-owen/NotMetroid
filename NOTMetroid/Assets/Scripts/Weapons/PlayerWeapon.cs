@@ -18,7 +18,6 @@ public class PlayerWeapon : Weapon
     {
         if (vector == Vector2.zero) return;
         _aimVector = vector;
-        Debug.Log(_aimVector);
     }
 
     public void HandleShoot()
