@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8904529834484493513}
   - component: {fileID: 325424055100039471}
   - component: {fileID: 6277489799769331512}
+  - component: {fileID: 8313153395770768324}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -61,9 +62,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groundDetectDistance: 1.1
+  wallJumpDetectDistance: 0.7
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 512
   characterStats: {fileID: 11400000, guid: bf99de2f62e4fb341a875e96e4b087c1, type: 2}
 --- !u!61 &325424055100039471
 BoxCollider2D:
@@ -137,6 +142,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &8313153395770768324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107381988673050188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23bc086a1bcc57047b88c3cc4f251b1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponStats: {fileID: 11400000, guid: 9784168dc762cd540a2e482f6da7c760, type: 2}
+  fireOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &4168530345176106446
 GameObject:
   m_ObjectHideFlags: 0

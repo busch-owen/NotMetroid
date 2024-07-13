@@ -770,25 +770,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1175021177 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2107381988673050188, guid: 6ded0eeb61a99e3449b167dd6480c3cb, type: 3}
-  m_PrefabInstance: {fileID: 8365110997509540909}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1175021183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1175021177}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23bc086a1bcc57047b88c3cc4f251b1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponStats: {fileID: 11400000, guid: 9784168dc762cd540a2e482f6da7c760, type: 2}
-  fireOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &1339744470
 GameObject:
   m_ObjectHideFlags: 0
@@ -915,21 +896,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 8904529834484493513, guid: 6ded0eeb61a99e3449b167dd6480c3cb, type: 3}
-      propertyPath: wallLayer.m_Bits
-      value: 512
-      objectReference: {fileID: 0}
-    - target: {fileID: 8904529834484493513, guid: 6ded0eeb61a99e3449b167dd6480c3cb, type: 3}
-      propertyPath: wallJumpDetectDistance
-      value: 0.7
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2107381988673050188, guid: 6ded0eeb61a99e3449b167dd6480c3cb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1175021183}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ded0eeb61a99e3449b167dd6480c3cb, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
