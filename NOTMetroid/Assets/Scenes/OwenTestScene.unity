@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 402831849}
   - component: {fileID: 402831848}
   - component: {fileID: 402831850}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 746229064}
   - component: {fileID: 746229063}
   - component: {fileID: 746229062}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -651,7 +651,7 @@ GameObject:
   - component: {fileID: 1013868441}
   - component: {fileID: 1013868440}
   - component: {fileID: 1013868439}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Floor (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -764,7 +764,7 @@ Transform:
   m_GameObject: {fileID: 1013868438}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.1, y: 3.38, z: 0}
+  m_LocalPosition: {x: 5.1, y: 0.16, z: 0}
   m_LocalScale: {x: 10, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -846,7 +846,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1908623132717586854, guid: 6ded0eeb61a99e3449b167dd6480c3cb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1.34
       objectReference: {fileID: 0}
     - target: {fileID: 1908623132717586854, guid: 6ded0eeb61a99e3449b167dd6480c3cb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -901,12 +901,24 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8904529834484493513, guid: 6ded0eeb61a99e3449b167dd6480c3cb, type: 3}
+      propertyPath: groundDetectSize.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8904529834484493513, guid: 6ded0eeb61a99e3449b167dd6480c3cb, type: 3}
+      propertyPath: groundDetectSize.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8904529834484493513, guid: 6ded0eeb61a99e3449b167dd6480c3cb, type: 3}
       propertyPath: invulnLayer.m_Bits
       value: 512
       objectReference: {fileID: 0}
     - target: {fileID: 8904529834484493513, guid: 6ded0eeb61a99e3449b167dd6480c3cb, type: 3}
       propertyPath: defaultLayer.m_Bits
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8904529834484493513, guid: 6ded0eeb61a99e3449b167dd6480c3cb, type: 3}
+      propertyPath: groundDetectDistance
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

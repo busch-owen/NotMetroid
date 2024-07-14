@@ -61,15 +61,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1db27ffcebeef94fa71862cc1f306f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundDetectDistance: 1.1
+  groundDetectDistance: 1
+  groundDetectSize: {x: 0.8, y: 0.2}
   wallJumpDetectDistance: 0.7
   characterStats: {fileID: 11400000, guid: bf99de2f62e4fb341a875e96e4b087c1, type: 2}
-  groundLayer:
+  ignorePlayer:
     serializedVersion: 2
-    m_Bits: 128
-  wallLayer:
-    serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 1015
 --- !u!61 &325424055100039471
 BoxCollider2D:
   m_ObjectHideFlags: 0
