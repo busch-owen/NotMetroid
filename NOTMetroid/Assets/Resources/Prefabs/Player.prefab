@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 325424055100039471}
   - component: {fileID: 6277489799769331512}
   - component: {fileID: 8313153395770768324}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -63,13 +63,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundDetectDistance: 1.1
   wallJumpDetectDistance: 0.7
+  characterStats: {fileID: 11400000, guid: bf99de2f62e4fb341a875e96e4b087c1, type: 2}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 128
   wallLayer:
     serializedVersion: 2
-    m_Bits: 512
-  characterStats: {fileID: 11400000, guid: bf99de2f62e4fb341a875e96e4b087c1, type: 2}
+    m_Bits: 64
 --- !u!61 &325424055100039471
 BoxCollider2D:
   m_ObjectHideFlags: 0

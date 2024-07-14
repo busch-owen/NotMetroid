@@ -12,6 +12,11 @@ public class CharacterStatsSO : ScriptableObject
     [field: SerializeField] public float WallJumpSpeed { get; private set; }
     [field: SerializeField] public float WallLaunchSpeed { get; private set; }
     
+    [field: SerializeField] public float DashSpeed { get; private set; }
+    [field: SerializeField] public float DashCooldown { get; private set; }
+    [field: SerializeField] public float InvulnTime { get; private set; }
+    
+    
     [field: Space(20f), Header("Physics Properties")]
     [field: SerializeField] public float Friction { get; private set; }
     

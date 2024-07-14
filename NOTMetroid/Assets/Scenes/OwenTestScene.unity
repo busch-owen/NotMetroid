@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 402831849}
   - component: {fileID: 402831848}
   - component: {fileID: 402831850}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,8 +264,8 @@ GameObject:
   - component: {fileID: 746229064}
   - component: {fileID: 746229063}
   - component: {fileID: 746229062}
-  m_Layer: 9
-  m_Name: Floor (2)
+  m_Layer: 6
+  m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -376,8 +376,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 746229061}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.70710677, w: 0.7071068}
-  m_LocalPosition: {x: -5.0000005, y: -0.43500042, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -5, y: -0.4350004, z: 0}
   m_LocalScale: {x: 10, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -651,7 +651,7 @@ GameObject:
   - component: {fileID: 1013868441}
   - component: {fileID: 1013868440}
   - component: {fileID: 1013868439}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Floor (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -850,7 +850,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1908623132717586854, guid: 6ded0eeb61a99e3449b167dd6480c3cb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.84
+      value: -0.3
       objectReference: {fileID: 0}
     - target: {fileID: 1908623132717586854, guid: 6ded0eeb61a99e3449b167dd6480c3cb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -888,13 +888,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 2107381988673050188, guid: 6ded0eeb61a99e3449b167dd6480c3cb, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 4168530345176106446, guid: 6ded0eeb61a99e3449b167dd6480c3cb, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8904529834484493513, guid: 6ded0eeb61a99e3449b167dd6480c3cb, type: 3}
+      propertyPath: invulnLayer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8904529834484493513, guid: 6ded0eeb61a99e3449b167dd6480c3cb, type: 3}
+      propertyPath: defaultLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8904529834484493513, guid: 6ded0eeb61a99e3449b167dd6480c3cb, type: 3}
+      propertyPath: invulnLayer.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 8904529834484493513, guid: 6ded0eeb61a99e3449b167dd6480c3cb, type: 3}
+      propertyPath: defaultLayer.m_Bits
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

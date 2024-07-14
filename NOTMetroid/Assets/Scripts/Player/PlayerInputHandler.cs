@@ -21,6 +21,7 @@ public class PlayerInputHandler : MonoBehaviour
         _gameInput.PlayerMovement.Jump.canceled += i => _playerMovement.CancelJump();
 
         _gameInput.PlayerActions.Shoot.started += i => _playerWeapon.HandleShoot();
+        _gameInput.PlayerActions.Dash.started += i => _playerMovement.Dash();
         
         _gameInput.Enable();
     }
