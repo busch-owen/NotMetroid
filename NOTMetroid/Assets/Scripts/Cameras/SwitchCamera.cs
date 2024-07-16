@@ -10,17 +10,21 @@ public class SwitchCamera : MonoBehaviour
     private bool _switch = false;
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (!_switch)
+        if (other.CompareTag("Player"))
         {
-            _camera1.gameObject.SetActive(false);
-            _camera2.gameObject.SetActive(true);
-            _switch = !_switch;
+            if (!_switch)
+            {
+                _camera1.gameObject.SetActive(false);
+                _camera2.gameObject.SetActive(true);
+                _switch = !_switch;
+            }
+            else
+            {
+                _camera2.gameObject.SetActive(false);
+                _camera1.gameObject.SetActive(true);
+                _switch = !_switch;
+            }
         }
-        else
-        {
-            _camera2.gameObject.SetActive(false);
-            _camera1.gameObject.SetActive(true);
-            _switch = !_switch;
-        }
+
     }
 }

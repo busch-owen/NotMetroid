@@ -13704,7 +13704,7 @@ GameObject:
   m_Component:
   - component: {fileID: 751827189}
   - component: {fileID: 751827188}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: CameraBounds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14222,7 +14222,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1356697709}
   - component: {fileID: 1356697708}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: CameraBounds (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
