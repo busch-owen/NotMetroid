@@ -24,9 +24,6 @@ public class Movement : MonoBehaviour
     private void FixedUpdate()
     {
         
-        
-        Move();
-        
         CheckApex();
         GroundCheck();
         
@@ -53,14 +50,14 @@ public class Movement : MonoBehaviour
 
     public void MoveRight()
     {
-        _movement = 0.75f;
+        _movement = 0.5f;
         _rb.velocity = new Vector2(Mathf.Lerp(_rb.velocity.x, _movement * _moveSpeed, _stats.Friction * Time.fixedDeltaTime), _rb.velocity.y);
         //Debug.Log(_rb.velocity);
     }
 
     public void MoveLeft()
     {
-        _movement = 5.0f;
+        _movement = 5.5f;
         _rb.velocity = new Vector2(Mathf.Lerp(-_rb.velocity.x, -_movement * _moveSpeed, _stats.Friction * Time.fixedDeltaTime),_rb.velocity.y);
         //Debug.Log(_rb.velocity);
     }
@@ -68,44 +65,11 @@ public class Movement : MonoBehaviour
 
     #endregion
 
-    #region Move
-    private void Move()
-    {
-        var movement = new Vector2(Mathf.Lerp(_rb.velocity.x, _movement * _stats.Speed,
-            _stats.Friction * Time.fixedDeltaTime), _rb.velocity.y);
-        
-        _rb.velocity = movement;
-    }
-
-    public void MoveEntity(Vector2 movementV)
-    {
-        _movement = movementV.x;
-    }
-    
-    #endregion
-
-    #region Jump
-    public void TriggerJump()
-    {
-        if (!_grounded) return;
-        _jumping = true;
-    }
-
-    public void CancelJump()
-    {
-        if (!_jumping) return;
-        
-        _rb.velocity = new Vector2(_rb.velocity.x, 0f);
-        _jumping = false;
-    }
-
     public void Jump()
     {
         _rb.velocity = new Vector2(_rb.velocity.x, _stats.JumpSpeed * Time.fixedDeltaTime);
         //Debug.Log(_rb.velocity);
     }
-    
-    #endregion
 
     #region Ground & Apex
 

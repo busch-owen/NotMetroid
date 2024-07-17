@@ -19,11 +19,11 @@ public class Enemy : MonoBehaviour
     protected float currentHealth;
     private Projectile _projectile;
     [SerializeField] private bool canJump;
-    [SerializeField] private bool patroling;
+    [SerializeField] private bool patroling = false;
     [SerializeField] private bool _right = true;
     [SerializeField] private bool _left;
-    [SerializeField] private bool canMove;
     [SerializeField] private bool _shoot;
+    [SerializeField] private bool canMove;
 
     private EnemyWeapon _weapon;
     
@@ -92,6 +92,7 @@ public class Enemy : MonoBehaviour
             targetInRange = false;
             CancelInvoke("Loop");
             invokeRunning = false;
+            _shoot = false;
 
         }
         
@@ -130,18 +131,18 @@ public class Enemy : MonoBehaviour
         #endregion
         
         #region MoveCheck
-        if (target != null && targetInRange && canJump == false)
+        if (canJump == false && target != null && targetInRange)
         {
             if (isRight)
             {
                 _movement.MoveRight();
-                //Debug.Log("Right");
+                Debug.Log("Right");
             }
 
             if (isLeft)
             {
                 _movement.MoveLeft();
-                //Debug.Log("Left");
+                Debug.Log("Left");
             }
         }
         
@@ -157,12 +158,12 @@ public class Enemy : MonoBehaviour
         
         if (patroling)// movement logic
         {
-            if (_right)
+            if (_right && patroling)
             {
                 _movement.MoveRight();
             }
 
-            if (_left)
+            if (_left && patroling)
             {
                 _movement.MoveLeft();
             }
@@ -200,21 +201,25 @@ public class Enemy : MonoBehaviour
             Debug.Log("EA");
             currentHealth -=_projectile._damage;
         }
-        
-        if (other.CompareTag("RightPatrolPoint"))
+
+        if (patroling)
         {
-            Debug.Log("patrolRight");
-            _right = false;
-            _left = true;
+            if (other.CompareTag("RightPatrolPoint"))
+            {
+                Debug.Log("patrolRight");
+                _right = false;
+                _left = true;
+            }
+
+            if (other.CompareTag("LeftPatrolPoint"))// switches patrol point and direction once touched
+            {
+                Debug.Log("patrolleft");
+                _left = false;
+                _right = true;
+            }
         }
 
-        if (other.CompareTag("LeftPatrolPoint"))// switches patrol point and direction once touched
-        {
-           Debug.Log("patrolleft");
-            _left = false;
-            _right = true;
-        }
         
-        
+        // set velocity to zero once hit ground after lunge.
     }
 }

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a242d04262c40f41b15c7e8498d7854, type: 3}
   m_Name: Enemy Weapons Stats
   m_EditorClassIdentifier: 
-  <Damage>k__BackingField: 0
-  <FireForce>k__BackingField: 0
-  <FireRate>k__BackingField: 0
-  <ProjectileLimit>k__BackingField: 0
-  <FiringCooldown>k__BackingField: 0
-  <Projectile>k__BackingField: {fileID: 0}
+  <Damage>k__BackingField: 5
+  <FireForce>k__BackingField: 5000
+  <FireRate>k__BackingField: 3
+  <ProjectileLimit>k__BackingField: 5
+  <FiringCooldown>k__BackingField: 3
+  <Projectile>k__BackingField: {fileID: 7832139283291896495, guid: c8cff8a2d8cbd61488bbb80905497193, type: 3}
