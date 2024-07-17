@@ -5,7 +5,7 @@ public class Movement : MonoBehaviour
 
     private Rigidbody2D _rb;
     
-    private float _movement;
+    [SerializeField] private float _movement;
 
     private bool _jumping;
     public bool _grounded = true;
@@ -14,6 +14,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private EnemyStatsSo _stats;
     [SerializeField] private float _lungeSpeed;
+    [SerializeField] private float _moveSpeed;
 
     private void Awake()
     {
@@ -41,14 +42,29 @@ public class Movement : MonoBehaviour
     public void LungeLeft()
     {
         _rb.AddForce(-transform.right * _lungeSpeed, ForceMode2D.Impulse);
-        Debug.Log("Llunge");
+        //Debug.Log("Llunge");
     }
 
     public void LungeRight()
     {
         _rb.AddForce(transform.right * _lungeSpeed, ForceMode2D.Impulse);
-        Debug.Log("Rlunge");
+        //Debug.Log("Rlunge");
     }
+
+    public void MoveRight()
+    {
+        _movement = 0.75f;
+        _rb.velocity = new Vector2(Mathf.Lerp(_rb.velocity.x, _movement * _moveSpeed, _stats.Friction * Time.fixedDeltaTime), _rb.velocity.y);
+        Debug.Log(_rb.velocity);
+    }
+
+    public void MoveLeft()
+    {
+        _movement = 5.0f;
+        _rb.velocity = new Vector2(Mathf.Lerp(-_rb.velocity.x, -_movement * _moveSpeed, _stats.Friction * Time.fixedDeltaTime),_rb.velocity.y);
+        Debug.Log(_rb.velocity);
+    }
+    
 
     #endregion
 
@@ -86,7 +102,7 @@ public class Movement : MonoBehaviour
     public void Jump()
     {
         _rb.velocity = new Vector2(_rb.velocity.x, _stats.JumpSpeed * Time.fixedDeltaTime);
-        Debug.Log(_rb.velocity);
+        //Debug.Log(_rb.velocity);
     }
     
     #endregion
