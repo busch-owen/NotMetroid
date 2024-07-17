@@ -16,5 +16,5 @@ MonoBehaviour:
   <Speed>k__BackingField: 3
   <StillJumpHeight>k__BackingField: 5
   <MovingJumpHeight>k__BackingField: 4
-  <JumpSpeed>k__BackingField: 150
-  <Friction>k__BackingField: 7
+  <JumpSpeed>k__BackingField: 350
+  <Friction>k__BackingField: 10

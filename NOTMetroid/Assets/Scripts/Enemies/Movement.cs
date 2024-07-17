@@ -40,12 +40,22 @@ public class Movement : MonoBehaviour
     {
         _rb.AddForce(-transform.right * _lungeSpeed, ForceMode2D.Impulse);
         //Debug.Log("Llunge");
+        Invoke("Zero", 0.75f);
     }
 
     public void LungeRight()
     {
         _rb.AddForce(transform.right * _lungeSpeed, ForceMode2D.Impulse);
         //Debug.Log("Rlunge");
+        if (_grounded = true)
+        {
+            Invoke("Zero", 0.75f);
+        }
+    }
+
+    private void Zero()
+    {
+        _rb.velocity = Vector2.zero;
     }
 
     public void MoveRight()
