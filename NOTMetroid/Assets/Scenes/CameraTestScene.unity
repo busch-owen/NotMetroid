@@ -14911,6 +14911,25 @@ MonoBehaviour:
   m_MaximumFOV: 60
   m_MinimumOrthoSize: 1
   m_MaximumOrthoSize: 5000
+--- !u!1 &931233807 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6369344590632063538, guid: 29b98d815e1477b48baa846ad62dd54a, type: 3}
+  m_PrefabInstance: {fileID: 1619112402}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &931233814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 931233807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed4d2da03b4554b449de4c5a84c38632, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponStats: {fileID: 11400000, guid: e09a7edfd416ecd44918d7f884193212, type: 2}
+  fireOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &962332456
 GameObject:
   m_ObjectHideFlags: 0
@@ -15543,6 +15562,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2361281887087786959, guid: 29b98d815e1477b48baa846ad62dd54a, type: 3}
+      propertyPath: _shoot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2361281887087786959, guid: 29b98d815e1477b48baa846ad62dd54a, type: 3}
+      propertyPath: canMove
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2361281887087786959, guid: 29b98d815e1477b48baa846ad62dd54a, type: 3}
       propertyPath: patroling
       value: 1
       objectReference: {fileID: 0}
@@ -15629,7 +15656,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6369344590632063538, guid: 29b98d815e1477b48baa846ad62dd54a, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 931233814}
   m_SourcePrefab: {fileID: 100100000, guid: 29b98d815e1477b48baa846ad62dd54a, type: 3}
 --- !u!1 &1937926963
 GameObject:

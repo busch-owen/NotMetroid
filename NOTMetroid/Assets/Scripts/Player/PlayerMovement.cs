@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -24,6 +25,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask ignorePlayer;
     private LayerMask _defaultLayer;
     private LayerMask _invulnLayer;
+    public float currentHealth;
+    [SerializeField]protected string currentScene;
+    private Projectile _projectile;
 
     #endregion
     
@@ -34,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _defaultLayer = LayerMask.NameToLayer("Player");
         _invulnLayer = LayerMask.NameToLayer("Invulnerable");
+        currentHealth = characterStats.Health;
     }
 
     private void Update()
@@ -53,6 +58,11 @@ public class PlayerMovement : MonoBehaviour
         if (_jumping)
         {
             Jump();
+        }
+
+        if (currentHealth <= 0)
+        {
+            SceneManager.LoadScene(currentScene);
         }
     }
 
@@ -197,5 +207,14 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.DrawWireCube(new Vector2(transform.position.x, transform.position.y + groundDetectDistance), groundDetectSize);
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, wallJumpDetectDistance);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("EnemyProjectile"))
+        {
+            _projectile = other.GetComponent<Projectile>();
+            currentHealth -=_projectile._damage;
+        }
     }
 }

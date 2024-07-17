@@ -23,6 +23,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] private bool _right = true;
     [SerializeField] private bool _left;
     [SerializeField] private bool canMove;
+    [SerializeField] private bool _shoot;
+
+    private EnemyWeapon _weapon;
     
     
     
@@ -34,12 +37,14 @@ public class Enemy : MonoBehaviour
         _movement = GetComponent<Movement>();
         _rb = GetComponent<Rigidbody2D>();
         currentHealth = _enemyStats.Health;
-        
+        _weapon = GetComponent<EnemyWeapon>();
+
     }
     
     void Loop()
     {
         inLungeRange = true;
+        _shoot = true;
     }
     
     void Right()
@@ -130,13 +135,13 @@ public class Enemy : MonoBehaviour
             if (isRight)
             {
                 _movement.MoveRight();
-                Debug.Log("Right");
+                //Debug.Log("Right");
             }
 
             if (isLeft)
             {
                 _movement.MoveLeft();
-                Debug.Log("Left");
+                //Debug.Log("Left");
             }
         }
         
@@ -144,6 +149,12 @@ public class Enemy : MonoBehaviour
         
         #endregion
 
+        #region Patrol
+
+        
+
+
+        
         if (patroling)// movement logic
         {
             if (_right)
@@ -155,6 +166,21 @@ public class Enemy : MonoBehaviour
             {
                 _movement.MoveLeft();
             }
+        }
+        
+        #endregion
+
+        if (_shoot && isRight && targetInRange)
+        {
+            //Debug.Log("shoot");
+            _weapon.Shoot(this.transform.right);
+            
+        }
+
+        if (_shoot && isLeft && targetInRange)
+        {
+            //Debug.Log("shoot");
+            _weapon.Shoot(-this.transform.right);
         }
         
         if (currentHealth <= 0)

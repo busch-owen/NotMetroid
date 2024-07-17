@@ -55,14 +55,14 @@ public class Movement : MonoBehaviour
     {
         _movement = 0.75f;
         _rb.velocity = new Vector2(Mathf.Lerp(_rb.velocity.x, _movement * _moveSpeed, _stats.Friction * Time.fixedDeltaTime), _rb.velocity.y);
-        Debug.Log(_rb.velocity);
+        //Debug.Log(_rb.velocity);
     }
 
     public void MoveLeft()
     {
         _movement = 5.0f;
         _rb.velocity = new Vector2(Mathf.Lerp(-_rb.velocity.x, -_movement * _moveSpeed, _stats.Friction * Time.fixedDeltaTime),_rb.velocity.y);
-        Debug.Log(_rb.velocity);
+        //Debug.Log(_rb.velocity);
     }
     
 

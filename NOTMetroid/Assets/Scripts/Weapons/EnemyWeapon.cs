@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon : MonoBehaviour
+public class EnemyWeapon : MonoBehaviour
 {
-    [SerializeField] private WeaponStats weaponStats;
+    [SerializeField] private EnemyWeaponStats weaponStats;
 
     [SerializeField] private Vector3 fireOffset;
 
