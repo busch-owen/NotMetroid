@@ -25,4 +25,9 @@ public class PlayerWeapon : Weapon
         if (_player.Grounded && _aimVector == new Vector2(0, -1)) return;
         Shoot(_aimVector);
     }
+
+    public void UpdateBeam(WeaponStats newWeapon)
+    {
+        this.weaponStats = newWeapon;
+    }
 }

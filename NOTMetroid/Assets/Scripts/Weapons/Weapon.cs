@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    [SerializeField] private WeaponStats weaponStats;
+    [SerializeField] public WeaponStats weaponStats; //probably not an amazing idea to make this public, but it'll have to do
 
     [SerializeField] private Vector3 fireOffset;
 
