@@ -17,11 +17,11 @@ public class PlayerMovement : MonoBehaviour
     public bool Grounded { get; private set; }
 
     [SerializeField] private float groundDetectDistance;
+    [SerializeField] private Vector2 groundDetectSize;
     [SerializeField] private float wallJumpDetectDistance;
     [SerializeField] private CharacterStatsSO characterStats;
 
-    [SerializeField] private LayerMask groundLayer;
-    [SerializeField] private LayerMask wallLayer;
+    [SerializeField] private LayerMask ignorePlayer;
     private LayerMask _defaultLayer;
     private LayerMask _invulnLayer;
 
@@ -34,9 +34,6 @@ public class PlayerMovement : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _defaultLayer = LayerMask.NameToLayer("Player");
         _invulnLayer = LayerMask.NameToLayer("Invulnerable");
-        
-        Debug.LogFormat(
-            $"Default layer is {_defaultLayer.value}, Ground Layer is, {groundLayer.value}, wall layer is {wallLayer.value}, Invuln Layer is {_invulnLayer.value}");
     }
 
     private void Update()
@@ -120,12 +117,13 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
         if (!Grounded) return;
+        Debug.Log("Jumping");
         _jumping = true;
     }
 
     private void CheckWallJump()
     {
-        var hit = Physics2D.CircleCast(transform.position, groundDetectDistance, Vector2.zero, Mathf.Infinity, wallLayer);
+        var hit = Physics2D.CircleCast(transform.position, groundDetectDistance, Vector2.zero, Mathf.Infinity, ignorePlayer);
         if (!Grounded && _movingJump)
         {
             _canWallJump = hit;
@@ -157,13 +155,18 @@ public class PlayerMovement : MonoBehaviour
 
     private void GroundCheck()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, groundDetectDistance, groundLayer);
-        Grounded = hit;
+        RaycastHit2D hit = Physics2D.BoxCast(new Vector2(transform.position.x, 
+            transform.position.y - groundDetectDistance), 
+            groundDetectSize, 0f, Vector2.zero, Mathf.Infinity, ignorePlayer);
+        
+        Grounded = hit != false;
     }
 
     private void RoofCheck()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, groundDetectDistance, groundLayer);
+        RaycastHit2D hit = Physics2D.BoxCast(new Vector2(transform.position.x, 
+                transform.position.y + groundDetectDistance), 
+            groundDetectSize, 0f, Vector2.zero, Mathf.Infinity, ignorePlayer);
         if (hit)
         {
             CancelJump();
@@ -176,7 +179,7 @@ public class PlayerMovement : MonoBehaviour
             ? characterStats.StillJumpHeight
             : characterStats.MovingJumpHeight;
         
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, height + 0.5f, groundLayer);
+        RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 1.1f), Vector2.down, height - 0.5f, ignorePlayer);
         
         if (Vector2.Distance(transform.position, hit.point) > height)
         {
@@ -189,7 +192,9 @@ public class PlayerMovement : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawLine(transform.position, new Vector3(transform.position.x, transform.position.y - groundDetectDistance));
+        Gizmos.DrawWireCube(new Vector2(transform.position.x, transform.position.y - groundDetectDistance), groundDetectSize);
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawWireCube(new Vector2(transform.position.x, transform.position.y + groundDetectDistance), groundDetectSize);
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, wallJumpDetectDistance);
     }
