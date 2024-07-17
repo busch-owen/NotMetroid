@@ -16,6 +16,9 @@ public class Enemy : MonoBehaviour
     protected Movement _movement;
     private Rigidbody2D _rb;
     private bool invokeRunning = false;
+    protected float currentHealth;
+    private Projectile _projectile;
+    
     
     
     // Start is called before the first frame update
@@ -24,6 +27,7 @@ public class Enemy : MonoBehaviour
         target = FindObjectOfType<PlayerMovement>().transform;
         _movement = GetComponent<Movement>();
         _rb = GetComponent<Rigidbody2D>();
+        currentHealth = _enemyStats.Health;
         
     }
     
@@ -113,9 +117,23 @@ public class Enemy : MonoBehaviour
         }
         
         #endregion
-        
+
+        if (currentHealth <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+
         //try adding a time check if grounded and x amount of time passed set inLunge range to true
 
     }
-    
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Projectile"))
+        {
+            _projectile = other.GetComponent<Projectile>();
+            Debug.Log("EA");
+            currentHealth -=_projectile._damage;
+        }
+    }
 }

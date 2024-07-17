@@ -7,6 +7,7 @@ using UnityEngine.Serialization;
 public class Projectile : PoolObject
 {
     [SerializeField] private float projectileLifetime = 1f;
+    [SerializeField] public float _damage;
     public Rigidbody2D RB { get; private set; }
 
     private void OnEnable()
