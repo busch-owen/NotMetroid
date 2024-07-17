@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     protected bool targetInRange;
     protected bool inLungeRange = true;
     [SerializeField] protected float detectionRange;
+    [SerializeField] private float _range;
     [SerializeField] protected float speed;   
     [SerializeField] EnemyStatsSo _enemyStats;
     [SerializeField] protected Transform target;
@@ -22,8 +23,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] private bool patroling = false;
     [SerializeField] private bool _right = true;
     [SerializeField] private bool _left;
-    [SerializeField] private bool _shoot;
     [SerializeField] private bool canMove;
+    private bool canShoot;
+    
 
     private EnemyWeapon _weapon;
     
@@ -44,7 +46,6 @@ public class Enemy : MonoBehaviour
     void Loop()
     {
         inLungeRange = true;
-        _shoot = true;
     }
     
     void Right()
@@ -75,6 +76,8 @@ public class Enemy : MonoBehaviour
         #region Distance Calculation
         
         float distance = Vector3.Distance(target.position, this.transform.position);
+        
+        float gunRange = Vector3.Distance(target.position, this.transform.position);
 
         float lungeDistance = Vector3.Distance(target.position, this.transform.position );
         
@@ -92,8 +95,18 @@ public class Enemy : MonoBehaviour
             targetInRange = false;
             CancelInvoke("Loop");
             invokeRunning = false;
-            _shoot = false;
+            
 
+        }
+
+        if (gunRange <= _range)
+        {
+            canShoot = true;
+            
+        }
+        else
+        {
+            canShoot = false;
         }
         
         #endregion
@@ -136,13 +149,13 @@ public class Enemy : MonoBehaviour
             if (isRight)
             {
                 _movement.MoveRight();
-                Debug.Log("Right");
+                //Debug.Log("Right");
             }
 
             if (isLeft)
             {
                 _movement.MoveLeft();
-                Debug.Log("Left");
+                //Debug.Log("Left");
             }
         }
         
@@ -171,14 +184,14 @@ public class Enemy : MonoBehaviour
         
         #endregion
 
-        if (_shoot && isRight && targetInRange)
+        if (canShoot && isRight)
         {
             //Debug.Log("shoot");
             _weapon.Shoot(this.transform.right);
             
         }
 
-        if (_shoot && isLeft && targetInRange)
+        if (canShoot && isLeft)
         {
             //Debug.Log("shoot");
             _weapon.Shoot(-this.transform.right);

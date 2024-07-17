@@ -40,36 +40,27 @@ public class Movement : MonoBehaviour
     {
         _rb.AddForce(-transform.right * _lungeSpeed, ForceMode2D.Impulse);
         //Debug.Log("Llunge");
-        Invoke("Zero", 0.75f);
     }
 
     public void LungeRight()
     {
         _rb.AddForce(transform.right * _lungeSpeed, ForceMode2D.Impulse);
         //Debug.Log("Rlunge");
-        if (_grounded = true)
-        {
-            Invoke("Zero", 0.75f);
-        }
     }
-
-    private void Zero()
-    {
-        _rb.velocity = Vector2.zero;
-    }
+    
 
     public void MoveRight()
     {
-        _movement = 0.5f;
+        //_movement = 0.5f;
         _rb.velocity = new Vector2(Mathf.Lerp(_rb.velocity.x, _movement * _moveSpeed, _stats.Friction * Time.fixedDeltaTime), _rb.velocity.y);
-        //Debug.Log(_rb.velocity);
+        Debug.Log(_rb.velocity);
     }
 
     public void MoveLeft()
     {
-        _movement = 5.5f;
+        //_movement = 5.5f;
         _rb.velocity = new Vector2(Mathf.Lerp(-_rb.velocity.x, -_movement * _moveSpeed, _stats.Friction * Time.fixedDeltaTime),_rb.velocity.y);
-        //Debug.Log(_rb.velocity);
+        Debug.Log(_rb.velocity);
     }
     
 

@@ -20,6 +20,6 @@ MonoBehaviour:
   <WallJumpSpeed>k__BackingField: 600
   <WallLaunchSpeed>k__BackingField: 2000
   <DashSpeed>k__BackingField: 2000
-  <DashCooldown>k__BackingField: 0.2
-  <InvulnTime>k__BackingField: 0.2
+  <DashCooldown>k__BackingField: 2
+  <InvulnTime>k__BackingField: 1
   <Friction>k__BackingField: 7

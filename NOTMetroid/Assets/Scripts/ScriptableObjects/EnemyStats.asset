@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: EnemyStats
   m_EditorClassIdentifier: 
   <Health>k__BackingField: 10
-  <Speed>k__BackingField: 3
+  <Speed>k__BackingField: 5
   <StillJumpHeight>k__BackingField: 5
   <MovingJumpHeight>k__BackingField: 4
   <JumpSpeed>k__BackingField: 350
-  <Friction>k__BackingField: 10
+  <Friction>k__BackingField: 7
