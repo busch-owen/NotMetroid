@@ -27,6 +27,10 @@ public class PlayerMovement : MonoBehaviour
 
     private PlayerAnimationController _animController;
 
+    private AudioSource _audioSource;
+    //[SerializeField] private AudioClip landSFX;
+    [SerializeField] private AudioClip jumpSFX;
+
     #endregion
     
     #region Unity Functions
@@ -37,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
         _defaultLayer = LayerMask.NameToLayer("Player");
         _invulnLayer = LayerMask.NameToLayer("Invulnerable");
         _animController = GetComponent<PlayerAnimationController>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -50,8 +55,6 @@ public class PlayerMovement : MonoBehaviour
         
         CheckApex();
         RoofCheck();
-
-        CheckWallJump();
         
         if (_jumping)
         {
@@ -115,14 +118,16 @@ public class PlayerMovement : MonoBehaviour
 
     public void TriggerJump()
     {
-        if (_canWallJump)
+        /*if (_canWallJump)
         {
             WallJump();
             _jumping = true;
             return;
-        }
+        }*/
         if (!Grounded) return;
-        Debug.Log("Jumping");
+        _audioSource.PlayOneShot(jumpSFX);
+        if(!_movingJump)
+            _audioSource.Stop();
         _jumping = true;
     }
 
