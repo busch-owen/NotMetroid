@@ -8,6 +8,8 @@ public class SwitchCamera : MonoBehaviour
     [SerializeField] private Camera _camera1;
     [SerializeField] private Camera _camera2;
     [SerializeField] private Vector2 minimapMoveDir;
+
+    [SerializeField] private Transform teleportPos;
     
     private MinimapMover _minimapMover;
     
@@ -18,25 +20,18 @@ public class SwitchCamera : MonoBehaviour
         _minimapMover = FindObjectOfType<MinimapMover>();
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (!other.CompareTag("Player")) return;
+        other.transform.position = teleportPos.position;
+    }
+
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
-        {
-            if (!_switch)
-            {
-                _camera1.gameObject.SetActive(false);
-                _camera2.gameObject.SetActive(true);
-                _minimapMover.ShiftMap(minimapMoveDir);
-                _switch = !_switch;
-            }
-            else
-            {
-                _camera2.gameObject.SetActive(false);
-                _camera1.gameObject.SetActive(true);
-                _minimapMover.ShiftMap(-minimapMoveDir);
-                _switch = !_switch;
-            }
-        }
-
+        if (!other.CompareTag("Player")) return;
+        
+        _camera1.gameObject.SetActive(false);
+        _camera2.gameObject.SetActive(true);
+        _minimapMover.ShiftMap(minimapMoveDir);
     }
 }
