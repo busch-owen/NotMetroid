@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class MinimapMover : MonoBehaviour
 {
-    [SerializeField] private int shiftAmt;
+    [SerializeField] private int shiftAmount;
     
     public void ShiftMap(Vector2 direction)
     {
-        transform.position = new Vector2(transform.position.x + shiftAmt * direction.x, transform.position.y + shiftAmt * direction.y);
+        transform.position = new Vector2(transform.position.x + shiftAmount * direction.x, transform.position.y + shiftAmount * direction.y);
     }
 }
