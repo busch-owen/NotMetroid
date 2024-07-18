@@ -10,6 +10,8 @@ public class Door : MonoBehaviour
     [SerializeField] private GameObject _doorVisual;
     [SerializeField] private Collider2D _doorSolid;
     [SerializeField] private bool _isMissileDoor = false;
+    [SerializeField] private Sprite _doorSprite1;
+    [SerializeField] private Sprite _doorSprite2;
     public UnityEvent doorCloseEvent;
     private SpriteRenderer _doorVisualSprite;
     private bool _isOpen = false;
@@ -19,7 +21,7 @@ public class Door : MonoBehaviour
         _doorVisualSprite = _doorVisual.GetComponent<SpriteRenderer>();
         if (_isMissileDoor)
         {
-            _doorVisualSprite.color = new Color(1f, 0f, 0f, 1f);
+            _doorVisualSprite.sprite = _doorSprite2;
         }
     }
 
@@ -57,6 +59,6 @@ public class Door : MonoBehaviour
     public void SwitchDoorType()
     {
         _isMissileDoor = !_isMissileDoor;
-        _doorVisualSprite.color = new Color(1f, 0f, 0f, 1f);
+        _doorVisualSprite.sprite = _doorSprite2;
     }
 }

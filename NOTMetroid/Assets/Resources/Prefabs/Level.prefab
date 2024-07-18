@@ -22292,6 +22292,7 @@ GameObject:
   - component: {fileID: 872462363524873541}
   - component: {fileID: 8713380328670047740}
   - component: {fileID: 276215749716698088}
+  - component: {fileID: 264433779653503326}
   m_Layer: 0
   m_Name: Virtual Camera Green2
   m_TagString: Untagged
@@ -22512,6 +22513,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8e3734f534d4d34784efdb02dbbfdab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!81 &264433779653503326
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1356680891894356299}
+  m_Enabled: 1
 --- !u!1 &1437972797852329580
 GameObject:
   m_ObjectHideFlags: 0
@@ -22528,6 +22537,7 @@ GameObject:
   - component: {fileID: 6792141747284737317}
   - component: {fileID: 8630363986015757393}
   - component: {fileID: 2199097877902192126}
+  - component: {fileID: 8029430557939372724}
   m_Layer: 0
   m_Name: Virtual Camera Gray3 Dodge
   m_TagString: Untagged
@@ -22748,6 +22758,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8e3734f534d4d34784efdb02dbbfdab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!81 &8029430557939372724
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437972797852329580}
+  m_Enabled: 1
 --- !u!1 &1461147587843542310
 GameObject:
   m_ObjectHideFlags: 0
@@ -23021,6 +23039,7 @@ GameObject:
   - component: {fileID: 7626469904014733371}
   - component: {fileID: 6187533004839249115}
   - component: {fileID: 8734468575847458641}
+  - component: {fileID: 3759843138794850936}
   m_Layer: 0
   m_Name: Virtual Camera Red2
   m_TagString: Untagged
@@ -23241,6 +23260,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8e3734f534d4d34784efdb02dbbfdab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!81 &3759843138794850936
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021408655243865932}
+  m_Enabled: 1
 --- !u!1 &2353229420954599345
 GameObject:
   m_ObjectHideFlags: 0
@@ -23381,6 +23408,7 @@ GameObject:
   - component: {fileID: 7223722939819709486}
   - component: {fileID: 7122363525960976115}
   - component: {fileID: 878993251198406712}
+  - component: {fileID: 6001773134955413018}
   m_Layer: 0
   m_Name: Virtual Camera Gray1 Missile
   m_TagString: Untagged
@@ -23601,6 +23629,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8e3734f534d4d34784efdb02dbbfdab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!81 &6001773134955413018
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2695737453444295702}
+  m_Enabled: 1
 --- !u!1 &2813714699687802164
 GameObject:
   m_ObjectHideFlags: 0
@@ -23617,6 +23653,7 @@ GameObject:
   - component: {fileID: 7488951349097925725}
   - component: {fileID: 7582722171885219084}
   - component: {fileID: 8829267080319101000}
+  - component: {fileID: 1952730349479707944}
   m_Layer: 0
   m_Name: Virtual Camera Green3 SP
   m_TagString: Untagged
@@ -23837,6 +23874,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8e3734f534d4d34784efdb02dbbfdab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!81 &1952730349479707944
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2813714699687802164}
+  m_Enabled: 1
 --- !u!1 &3075604175821252004
 GameObject:
   m_ObjectHideFlags: 0
@@ -24022,6 +24067,7 @@ GameObject:
   - component: {fileID: 6346095272332022220}
   - component: {fileID: 3556296434050517450}
   - component: {fileID: 1564662577177219993}
+  - component: {fileID: 2592805098113039666}
   m_Layer: 0
   m_Name: Virtual Camera Red3
   m_TagString: Untagged
@@ -24242,6 +24288,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8e3734f534d4d34784efdb02dbbfdab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!81 &2592805098113039666
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3631249320155281968}
+  m_Enabled: 1
 --- !u!1 &4497423340061021621
 GameObject:
   m_ObjectHideFlags: 0
@@ -24258,6 +24312,7 @@ GameObject:
   - component: {fileID: 7700221065469460360}
   - component: {fileID: 5649329048847428283}
   - component: {fileID: 2952583155627073812}
+  - component: {fileID: 6325243364018038178}
   m_Layer: 0
   m_Name: Virtual Camera Red1
   m_TagString: Untagged
@@ -24478,6 +24533,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8e3734f534d4d34784efdb02dbbfdab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!81 &6325243364018038178
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4497423340061021621}
+  m_Enabled: 1
 --- !u!1 &4562909457241698579
 GameObject:
   m_ObjectHideFlags: 0
@@ -24631,6 +24694,7 @@ GameObject:
   - component: {fileID: 8057815844398834243}
   - component: {fileID: 3114327779420287433}
   - component: {fileID: 1853404160544558605}
+  - component: {fileID: 4687693065209578406}
   m_Layer: 0
   m_Name: Virtual Camera Red4 SP
   m_TagString: Untagged
@@ -24851,6 +24915,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8e3734f534d4d34784efdb02dbbfdab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!81 &4687693065209578406
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4974316380092003199}
+  m_Enabled: 1
 --- !u!1 &5703913278328265394
 GameObject:
   m_ObjectHideFlags: 0
@@ -24955,6 +25027,7 @@ GameObject:
   - component: {fileID: 1840750264363838085}
   - component: {fileID: 8931495241073326312}
   - component: {fileID: 130577540233035242}
+  - component: {fileID: 3556361421631069377}
   m_Layer: 0
   m_Name: Virtual Camera Gray2 HighJump
   m_TagString: Untagged
@@ -25175,6 +25248,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8e3734f534d4d34784efdb02dbbfdab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!81 &3556361421631069377
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5814494614235561659}
+  m_Enabled: 1
 --- !u!1 &5973860410750898953
 GameObject:
   m_ObjectHideFlags: 0
@@ -29112,6 +29193,7 @@ GameObject:
   - component: {fileID: 4283853026907220181}
   - component: {fileID: 8779933271613665266}
   - component: {fileID: 9157278001254334244}
+  - component: {fileID: 7462920484484964238}
   m_Layer: 0
   m_Name: Virtual Camera Gray4 Boss
   m_TagString: Untagged
@@ -29332,6 +29414,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8e3734f534d4d34784efdb02dbbfdab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!81 &7462920484484964238
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6339422282509534137}
+  m_Enabled: 1
 --- !u!1 &6460844077143694569
 GameObject:
   m_ObjectHideFlags: 0
@@ -29348,6 +29438,7 @@ GameObject:
   - component: {fileID: 8210771726492756098}
   - component: {fileID: 5063332255667034826}
   - component: {fileID: 8895680187811370475}
+  - component: {fileID: 9081314451703750502}
   m_Layer: 0
   m_Name: Virtual Camera Green4
   m_TagString: Untagged
@@ -29568,6 +29659,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8e3734f534d4d34784efdb02dbbfdab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!81 &9081314451703750502
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6460844077143694569}
+  m_Enabled: 1
 --- !u!1 &6471457764496714735
 GameObject:
   m_ObjectHideFlags: 0
@@ -30098,6 +30197,7 @@ GameObject:
   - component: {fileID: 676005598360278905}
   - component: {fileID: 2587803472332301223}
   - component: {fileID: 1781818026709081407}
+  - component: {fileID: 7925499414819849184}
   m_Layer: 0
   m_Name: Virtual Camera Green1 Start
   m_TagString: Untagged
@@ -30318,6 +30418,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8e3734f534d4d34784efdb02dbbfdab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!81 &7925499414819849184
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7754102744537981533}
+  m_Enabled: 1
 --- !u!1 &7924366247948907368
 GameObject:
   m_ObjectHideFlags: 0

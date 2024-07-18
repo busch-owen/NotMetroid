@@ -26,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
     private LayerMask _defaultLayer;
     private LayerMask _invulnLayer;
     public float currentHealth;
+
+    private EnergyCounter _energyCounter;
     [SerializeField]protected string currentScene;
     private Projectile _projectile;
 
@@ -44,9 +46,12 @@ public class PlayerMovement : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _defaultLayer = LayerMask.NameToLayer("Player");
         _invulnLayer = LayerMask.NameToLayer("Invulnerable");
-        currentHealth = characterStats.Health;
         _animController = GetComponent<PlayerAnimationController>();
         _audioSource = GetComponent<AudioSource>();
+        _energyCounter = FindObjectOfType<EnergyCounter>();
+        
+        currentHealth = characterStats.Health;
+        _energyCounter.RecalculateEnergy((int)currentHealth);
     }
 
     private void Update()
@@ -226,6 +231,7 @@ public class PlayerMovement : MonoBehaviour
         {
             _projectile = other.GetComponent<Projectile>();
             currentHealth -=_projectile._damage;
+            _energyCounter.RecalculateEnergy((int)currentHealth);
         }
     }
 }
