@@ -8,7 +8,7 @@ public class CharacterStatsSO : ScriptableObject
     [field: SerializeField] public float Speed { get; private set; }
     [field: SerializeField] public float StillJumpHeight { get; private set; }
     [field: SerializeField] public float MovingJumpHeight { get; private set; }
-    [field: SerializeField] public float JumpSpeed { get; private set; }
+    [field: SerializeField] public float JumpSpeed;// { get; private set; }
     [field: SerializeField] public float WallJumpSpeed { get; private set; }
     [field: SerializeField] public float WallLaunchSpeed { get; private set; }
     

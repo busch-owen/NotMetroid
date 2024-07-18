@@ -3,20 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JumpUpgradeGiver : MonoBehaviour
+public class DashUpgradeGiver : MonoBehaviour
 {
-    [SerializeField] private CharacterStatsSO _playerStats;
-
+    [SerializeField] private GameObject _player;
+    private PlayerInputHandler _input;
     private void Awake()
     {
-        _playerStats.JumpSpeed = 500; //probably should be reset in the player controller but i'm short on time here!
+        _input = _player.GetComponent<PlayerInputHandler>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            _playerStats.JumpSpeed = 750;
+            _input.EnableDashInput();
             Destroy(this.gameObject);
         }
     }

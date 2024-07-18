@@ -24,10 +24,16 @@ public class PlayerInputHandler : MonoBehaviour
         _gameInput.PlayerActions.Dash.started += i => _playerMovement.Dash();
         
         _gameInput.Enable();
+        _gameInput.PlayerActions.Dash.Disable();
     }
 
     private void OnDestroy()
     {
         _gameInput.Disable();
+    }
+
+    public void EnableDashInput()
+    {
+        _gameInput.PlayerActions.Dash.Enable();
     }
 }
