@@ -131,18 +131,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 325424055100039471, guid: 6ded0eeb61a99e3449b167dd6480c3cb, type: 3}
-      propertyPath: m_Size.x
-      value: 0.85
-      objectReference: {fileID: 0}
-    - target: {fileID: 325424055100039471, guid: 6ded0eeb61a99e3449b167dd6480c3cb, type: 3}
-      propertyPath: m_Size.y
-      value: 1.562973
-      objectReference: {fileID: 0}
-    - target: {fileID: 325424055100039471, guid: 6ded0eeb61a99e3449b167dd6480c3cb, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.1723207
-      objectReference: {fileID: 0}
     - target: {fileID: 1562686276491029083, guid: 6ded0eeb61a99e3449b167dd6480c3cb, type: 3}
       propertyPath: m_Name
       value: Sprite
@@ -1436,7 +1424,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7332015637956212923, guid: c14a2df8e80c7d64bb44b8217f7937b8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -2.07
       objectReference: {fileID: 0}
     - target: {fileID: 7332015637956212923, guid: c14a2df8e80c7d64bb44b8217f7937b8, type: 3}
       propertyPath: m_LocalPosition.z
