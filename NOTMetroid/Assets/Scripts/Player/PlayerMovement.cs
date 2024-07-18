@@ -232,7 +232,7 @@ public class PlayerMovement : MonoBehaviour
         {
             _projectile = other.GetComponent<Projectile>();
             currentHealth -=_projectile._damage;
-            _energyCounter.RecalculateEnergy((int)currentHealth);
+           _energyCounter.RecalculateEnergy((int)currentHealth);
         }
     }
 }

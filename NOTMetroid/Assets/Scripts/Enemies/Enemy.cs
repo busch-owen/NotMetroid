@@ -186,14 +186,14 @@ public class Enemy : MonoBehaviour
 
         if (canShoot && isRight)
         {
-            //Debug.Log("shoot");
+            Debug.Log("shoot");
             _weapon.Shoot(this.transform.right);
             
         }
 
         if (canShoot && isLeft)
         {
-            //Debug.Log("shoot");
+            Debug.Log("shoot");
             _weapon.Shoot(-this.transform.right);
         }
         
@@ -209,6 +209,12 @@ public class Enemy : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)// die when hit by bullet
     {
         if (other.CompareTag("Projectile"))
+        {
+            _projectile = other.GetComponent<Projectile>();
+            Debug.Log("EA");
+            currentHealth -=_projectile._damage;
+        }
+        if (other.CompareTag("PowerProjectile"))
         {
             _projectile = other.GetComponent<Projectile>();
             Debug.Log("EA");

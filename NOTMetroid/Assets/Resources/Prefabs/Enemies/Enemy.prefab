@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2361281887087786959}
   - component: {fileID: 2782160283086824531}
   - component: {fileID: 2412285398125972305}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.06879866}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -81,7 +81,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 1, y: 1.0024185}
   m_EdgeRadius: 0
 --- !u!114 &7736826179043912453
 MonoBehaviour:
@@ -109,7 +109,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 2
+  m_Mass: 1.0024185
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 1
@@ -168,6 +168,8 @@ MonoBehaviour:
   _stats: {fileID: 11400000, guid: 05b101b0661b6fc42ad7012cab7bed38, type: 2}
   _lungeSpeed: 5
   _moveSpeed: 5
+  _speedRight: 1
+  _speedLeft: 6
 --- !u!61 &2412285398125972305
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -200,7 +202,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.02180219}
+  m_Offset: {x: -0.010896683, y: -0.08599001}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -211,7 +213,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 2}
+  m_Size: {x: 1.0906258, y: 1.137662}
   m_EdgeRadius: 0
 --- !u!1 &8286158915111216178
 GameObject:
@@ -223,7 +225,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6357072489906035031}
   - component: {fileID: 1509454846949875191}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -286,7 +288,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: 1595009698, guid: 177227adf167e5a47b94c668405789f1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

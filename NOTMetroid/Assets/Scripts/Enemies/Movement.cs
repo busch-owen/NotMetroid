@@ -15,6 +15,9 @@ public class Movement : MonoBehaviour
     [SerializeField] private EnemyStatsSo _stats;
     [SerializeField] private float _lungeSpeed;
     [SerializeField] private float _moveSpeed;
+    [SerializeField] private float _speedRight;
+    [SerializeField] private float _speedLeft;
+    
 
     private void Awake()
     {
@@ -51,14 +54,14 @@ public class Movement : MonoBehaviour
 
     public void MoveRight()
     {
-        //_movement = 0.5f;
+        _movement = _speedRight;
         _rb.velocity = new Vector2(Mathf.Lerp(_rb.velocity.x, _movement * _moveSpeed, _stats.Friction * Time.fixedDeltaTime), _rb.velocity.y);
         Debug.Log(_rb.velocity);
     }
 
     public void MoveLeft()
     {
-        //_movement = 5.5f;
+        _movement = _speedLeft;
         _rb.velocity = new Vector2(Mathf.Lerp(-_rb.velocity.x, -_movement * _moveSpeed, _stats.Friction * Time.fixedDeltaTime),_rb.velocity.y);
         Debug.Log(_rb.velocity);
     }
