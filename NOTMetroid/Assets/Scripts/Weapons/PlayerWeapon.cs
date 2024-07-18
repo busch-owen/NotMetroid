@@ -8,10 +8,13 @@ public class PlayerWeapon : Weapon
 
     private PlayerMovement _player;
 
+    private PlayerAnimationController _animController;
+
     protected override void Awake()
     {
         base.Awake();
         _player = GetComponent<PlayerMovement>();
+        _animController = GetComponent<PlayerAnimationController>();
     }
     
     public void CheckAimAngle(Vector2 vector)
@@ -24,6 +27,7 @@ public class PlayerWeapon : Weapon
     {
         if (_player.Grounded && _aimVector == new Vector2(0, -1)) return;
         Shoot(_aimVector);
+        _animController.CheckRunningShot(_aimVector);
     }
 
     public void UpdateBeam(WeaponStats newWeapon)

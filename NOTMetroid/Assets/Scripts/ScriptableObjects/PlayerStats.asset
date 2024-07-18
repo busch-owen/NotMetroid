@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Health>k__BackingField: 100
   <Speed>k__BackingField: 10
-  <StillJumpHeight>k__BackingField: 5
-  <MovingJumpHeight>k__BackingField: 4
+  <StillJumpHeight>k__BackingField: 3.5
+  <MovingJumpHeight>k__BackingField: 2.5
   <JumpSpeed>k__BackingField: 500
   <WallJumpSpeed>k__BackingField: 600
   <WallLaunchSpeed>k__BackingField: 2000

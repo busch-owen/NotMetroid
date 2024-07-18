@@ -25,6 +25,8 @@ public class PlayerMovement : MonoBehaviour
     private LayerMask _defaultLayer;
     private LayerMask _invulnLayer;
 
+    private PlayerAnimationController _animController;
+
     #endregion
     
     #region Unity Functions
@@ -34,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _defaultLayer = LayerMask.NameToLayer("Player");
         _invulnLayer = LayerMask.NameToLayer("Invulnerable");
+        _animController = GetComponent<PlayerAnimationController>();
     }
 
     private void Update()
@@ -70,6 +73,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void MovePlayer(Vector2 movement)
     {
+        _animController.CheckRun(movement);
         _playerMovement = movement.x;
         _movingJump = _playerMovement != 0;
     }
@@ -80,6 +84,7 @@ public class PlayerMovement : MonoBehaviour
     public void Dash()
     {
         if (!_canDash) return;
+        _animController.CheckDash();
         GoInvulnerable();
         _rb.velocity = Vector2.zero;
         _rb.velocity = new Vector2(characterStats.DashSpeed * _playerMovement * Time.fixedDeltaTime, _rb.velocity.y);
@@ -160,6 +165,7 @@ public class PlayerMovement : MonoBehaviour
             groundDetectSize, 0f, Vector2.zero, Mathf.Infinity, ignorePlayer);
         
         Grounded = hit != false;
+        _animController.CheckGround(Grounded);
     }
 
     private void RoofCheck()
