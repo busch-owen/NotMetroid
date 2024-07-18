@@ -135,7 +135,7 @@ Transform:
   m_GameObject: {fileID: 3246600078092850038}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.41, y: 0, z: 0}
+  m_LocalPosition: {x: 0.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -154,8 +154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62df7c62e9fb7dc44a994d4571d70ee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _camera1: {fileID: 0}
-  _camera2: {fileID: 0}
+  _currentCamera: {fileID: 0}
+  _nextCamera: {fileID: 0}
   minimapMoveDir: {x: -1, y: 0}
   teleportPos: {fileID: 330303442856476793}
 --- !u!61 &489980572728491927
@@ -532,7 +532,7 @@ Transform:
   m_GameObject: {fileID: 8576982692659808670}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -551,8 +551,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62df7c62e9fb7dc44a994d4571d70ee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _camera1: {fileID: 0}
-  _camera2: {fileID: 0}
+  _currentCamera: {fileID: 0}
+  _nextCamera: {fileID: 0}
   minimapMoveDir: {x: -1, y: 0}
   teleportPos: {fileID: 6423641640575867122}
 --- !u!61 &9041237611442420004
@@ -598,5 +598,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 2.9799855}
+  m_Size: {x: 0.5, y: 2.9799855}
   m_EdgeRadius: 0

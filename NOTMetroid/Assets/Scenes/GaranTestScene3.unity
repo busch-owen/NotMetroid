@@ -415,6 +415,11 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 5044581236286255871, guid: d9916d282411de443ad59a7e89c3c858, type: 3}
   m_PrefabInstance: {fileID: 5683319746993686124}
   m_PrefabAsset: {fileID: 0}
+--- !u!20 &1265366763 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 1414302219004349706, guid: d9916d282411de443ad59a7e89c3c858, type: 3}
+  m_PrefabInstance: {fileID: 5683319746993686124}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1339744470
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,6 +579,10 @@ PrefabInstance:
       propertyPath: _camera2
       value: 
       objectReference: {fileID: 867044019}
+    - target: {fileID: 1188017492258656396, guid: d9916d282411de443ad59a7e89c3c858, type: 3}
+      propertyPath: minimapMoveDir.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1354336687335981678, guid: d9916d282411de443ad59a7e89c3c858, type: 3}
       propertyPath: m_Follow
       value: 
@@ -586,18 +595,46 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 662421598}
-    - target: {fileID: 3381423767785495273, guid: d9916d282411de443ad59a7e89c3c858, type: 3}
-      propertyPath: m_Size.x
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 3656211473738609281, guid: d9916d282411de443ad59a7e89c3c858, type: 3}
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 662421598}
+    - target: {fileID: 3662203173983240125, guid: d9916d282411de443ad59a7e89c3c858, type: 3}
+      propertyPath: _nextCamera
+      value: 
+      objectReference: {fileID: 867044019}
+    - target: {fileID: 3662203173983240125, guid: d9916d282411de443ad59a7e89c3c858, type: 3}
+      propertyPath: _currentCamera
+      value: 
+      objectReference: {fileID: 1265366763}
+    - target: {fileID: 3662203173983240125, guid: d9916d282411de443ad59a7e89c3c858, type: 3}
+      propertyPath: minimapMoveDir.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3662203173983240125, guid: d9916d282411de443ad59a7e89c3c858, type: 3}
+      propertyPath: minimapMoveDir.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5020586895899359721, guid: d9916d282411de443ad59a7e89c3c858, type: 3}
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 662421598}
+    - target: {fileID: 6007535416598262688, guid: d9916d282411de443ad59a7e89c3c858, type: 3}
+      propertyPath: _nextCamera
+      value: 
+      objectReference: {fileID: 1265366763}
+    - target: {fileID: 6007535416598262688, guid: d9916d282411de443ad59a7e89c3c858, type: 3}
+      propertyPath: _currentCamera
+      value: 
+      objectReference: {fileID: 867044019}
+    - target: {fileID: 6007535416598262688, guid: d9916d282411de443ad59a7e89c3c858, type: 3}
+      propertyPath: minimapMoveDir.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6007535416598262688, guid: d9916d282411de443ad59a7e89c3c858, type: 3}
+      propertyPath: minimapMoveDir.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6733800313475631249, guid: d9916d282411de443ad59a7e89c3c858, type: 3}
       propertyPath: m_LocalPosition.x
       value: -28.501474
@@ -638,10 +675,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7458572305905671892, guid: d9916d282411de443ad59a7e89c3c858, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 7972126537969464373, guid: d9916d282411de443ad59a7e89c3c858, type: 3}
       propertyPath: m_Follow
       value: 
@@ -666,10 +699,6 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 662421598}
-    - target: {fileID: 9104535790159973930, guid: d9916d282411de443ad59a7e89c3c858, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
