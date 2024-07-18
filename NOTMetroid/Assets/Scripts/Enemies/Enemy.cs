@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     protected bool targetInRange;
     protected bool inLungeRange = true;
     [SerializeField] protected float detectionRange;
+    [SerializeField] private float _range;
     [SerializeField] protected float speed;   
     [SerializeField] EnemyStatsSo _enemyStats;
     [SerializeField] protected Transform target;
@@ -18,6 +19,16 @@ public class Enemy : MonoBehaviour
     private bool invokeRunning = false;
     protected float currentHealth;
     private Projectile _projectile;
+    [SerializeField] private bool canJump;
+    [SerializeField] private bool patroling = false;
+    [SerializeField] private bool _right = true;
+    [SerializeField] private bool _left;
+    [SerializeField] private bool canMove;
+    private bool canShoot;
+    
+
+    private EnemyWeapon _weapon;
+    
     
     
     
@@ -28,7 +39,8 @@ public class Enemy : MonoBehaviour
         _movement = GetComponent<Movement>();
         _rb = GetComponent<Rigidbody2D>();
         currentHealth = _enemyStats.Health;
-        
+        _weapon = GetComponent<EnemyWeapon>();
+
     }
     
     void Loop()
@@ -64,6 +76,8 @@ public class Enemy : MonoBehaviour
         #region Distance Calculation
         
         float distance = Vector3.Distance(target.position, this.transform.position);
+        
+        float gunRange = Vector3.Distance(target.position, this.transform.position);
 
         float lungeDistance = Vector3.Distance(target.position, this.transform.position );
         
@@ -71,23 +85,35 @@ public class Enemy : MonoBehaviour
 
         #region InRangeFollow
         
-        if (distance <= detectionRange)// detection range check, if within set radius between player and enemy then target is set.
+        if (distance <= detectionRange && canMove)// detection range check, if within set radius between player and enemy then target is set.
         {
             targetInRange = true;
+            patroling = false;
         }
         else
         {
             targetInRange = false;
             CancelInvoke("Loop");
             invokeRunning = false;
+            
 
+        }
+
+        if (gunRange <= _range)
+        {
+            canShoot = true;
+            
+        }
+        else
+        {
+            canShoot = false;
         }
         
         #endregion
 
         #region LungeCheck
 
-        if (target != null && targetInRange)
+        if (target != null && targetInRange && canJump)
 
         {
             if (!invokeRunning)
@@ -115,9 +141,62 @@ public class Enemy : MonoBehaviour
                 }
             }
         }
+        #endregion
+        
+        #region MoveCheck
+        if (canJump == false && target != null && targetInRange)
+        {
+            if (isRight)
+            {
+                _movement.MoveRight();
+                //Debug.Log("Right");
+            }
+
+            if (isLeft)
+            {
+                _movement.MoveLeft();
+                //Debug.Log("Left");
+            }
+        }
+        
+        
         
         #endregion
 
+        #region Patrol
+
+        
+
+
+        
+        if (patroling)// movement logic
+        {
+            if (_right && patroling)
+            {
+                _movement.MoveRight();
+            }
+
+            if (_left && patroling)
+            {
+                _movement.MoveLeft();
+            }
+        }
+        
+        #endregion
+
+        if (canShoot && isRight)
+        {
+            //Debug.Log("shoot");
+            _weapon.Shoot(this.transform.right);
+            
+        }
+
+        if (canShoot && isLeft)
+        {
+            //Debug.Log("shoot");
+            _weapon.Shoot(-this.transform.right);
+        }
+        
         if (currentHealth <= 0)
         {
             Destroy(this.gameObject);
@@ -127,7 +206,7 @@ public class Enemy : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)// die when hit by bullet
     {
         if (other.CompareTag("Projectile"))
         {
@@ -135,5 +214,25 @@ public class Enemy : MonoBehaviour
             Debug.Log("EA");
             currentHealth -=_projectile._damage;
         }
+
+        if (patroling)
+        {
+            if (other.CompareTag("RightPatrolPoint"))
+            {
+                Debug.Log("patrolRight");
+                _right = false;
+                _left = true;
+            }
+
+            if (other.CompareTag("LeftPatrolPoint"))// switches patrol point and direction once touched
+            {
+                Debug.Log("patrolleft");
+                _left = false;
+                _right = true;
+            }
+        }
+
+        
+        // set velocity to zero once hit ground after lunge.
     }
 }

@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Projectile
   - PowerProjectile
+  - RightPatrolPoint
+  - LeftPatrolPoint
+  - EnemyProjectile
   layers:
   - Default
   - TransparentFX
@@ -18,8 +21,8 @@ TagManager:
   - FriendlyProjectile
   - Invulnerable
   - CameraBounds
-  - 
-  - 
+  - EnemyProjectile
+  - Enemy
   - 
   - 
   - 
