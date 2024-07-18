@@ -43,3 +43,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Details
+    uniqueID: 1373297125
+    locked: 0
+  - name: SecretPassages
+    uniqueID: 3961518355
+    locked: 0
+  - name: Foreground
+    uniqueID: 2304056517
+    locked: 0
+  - name: Ground
+    uniqueID: 3862260499
+    locked: 0
