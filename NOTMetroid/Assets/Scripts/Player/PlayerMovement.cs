@@ -101,6 +101,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Dash()
     {
+        if (_playerMovement == 0) return;
         if (!_canDash) return;
         _animController.CheckDash();
         GoInvulnerable();

@@ -10,10 +10,6 @@ public class PlayerWeapon : Weapon
 
     private PlayerAnimationController _animController;
 
-    private AudioSource _audioSource;
-    
-    [SerializeField] private AudioClip[] beamSFX;
-
     protected override void Awake()
     {
         base.Awake();

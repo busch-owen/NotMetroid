@@ -139,14 +139,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 4880002593584985730, guid: 6ded0eeb61a99e3449b167dd6480c3cb, type: 3}
-      propertyPath: groundDetectSize.x
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4880002593584985730, guid: 6ded0eeb61a99e3449b167dd6480c3cb, type: 3}
-      propertyPath: groundDetectDistance
-      value: 0.9
-      objectReference: {fileID: 0}
     - target: {fileID: 5760494172389359386, guid: 6ded0eeb61a99e3449b167dd6480c3cb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -339,6 +331,7 @@ GameObject:
   - component: {fileID: 596160630}
   - component: {fileID: 596160629}
   - component: {fileID: 596160628}
+  - component: {fileID: 596160632}
   m_Layer: 0
   m_Name: Virtual Camera (1)
   m_TagString: Untagged
@@ -508,6 +501,14 @@ Transform:
   - {fileID: 1164777940}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!81 &596160632
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 596160626}
+  m_Enabled: 1
 --- !u!1 &746229061
 GameObject:
   m_ObjectHideFlags: 0
@@ -695,6 +696,7 @@ GameObject:
   - component: {fileID: 962332458}
   - component: {fileID: 962332457}
   - component: {fileID: 962332461}
+  - component: {fileID: 962332462}
   m_Layer: 0
   m_Name: Virtual Camera
   m_TagString: Untagged
@@ -864,6 +866,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a8a05de0ac134f4f9d01bef6b9da077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!81 &962332462
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 962332456}
+  m_Enabled: 1
 --- !u!1 &1013868438
 GameObject:
   m_ObjectHideFlags: 0
@@ -1720,6 +1730,10 @@ PrefabInstance:
     - target: {fileID: 4142684132314981825, guid: e03e418daa1e0c44fac580cf27a48c79, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4355580458359514420, guid: e03e418daa1e0c44fac580cf27a48c79, type: 3}
+      propertyPath: shiftAmount
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8330575172493692481, guid: e03e418daa1e0c44fac580cf27a48c79, type: 3}
       propertyPath: m_Pivot.x

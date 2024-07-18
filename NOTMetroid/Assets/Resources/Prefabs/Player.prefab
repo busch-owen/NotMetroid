@@ -169,13 +169,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1db27ffcebeef94fa71862cc1f306f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundDetectDistance: 1
-  groundDetectSize: {x: 0.8, y: 0.2}
+  groundDetectDistance: 0.9
+  groundDetectSize: {x: 0.7, y: 0.2}
   wallJumpDetectDistance: 0.7
   characterStats: {fileID: 11400000, guid: bf99de2f62e4fb341a875e96e4b087c1, type: 2}
   ignorePlayer:
     serializedVersion: 2
     m_Bits: 1015
+  currentHealth: 0
+  currentScene: 
   jumpSFX: {fileID: 8300000, guid: 248f07f74ca8ca64abeaa13384880a08, type: 3}
 --- !u!50 &1494667100260667900
 Rigidbody2D:
@@ -218,7 +220,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponStats: {fileID: 11400000, guid: 9784168dc762cd540a2e482f6da7c760, type: 2}
   fireOffset: {x: 0, y: 0, z: 0}
-  beamSFX: []
+  beamSFX:
+  - {fileID: 8300000, guid: 4881f16d39172b14398885ca05ccf018, type: 3}
+  - {fileID: 8300000, guid: 5dd28c92cf846174a8e4d3ca2318163a, type: 3}
+  - {fileID: 8300000, guid: 99f133dc62d0be14f851a77830d3de7c, type: 3}
 --- !u!61 &325424055100039471
 BoxCollider2D:
   m_ObjectHideFlags: 0
