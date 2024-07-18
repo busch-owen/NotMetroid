@@ -32135,6 +32135,22 @@ PrefabInstance:
       propertyPath: _camera2
       value: 
       objectReference: {fileID: 430580737167039763}
+    - target: {fileID: 2478306813959618396, guid: 607c34fe3ca0dba4c9dbc8046474a232, type: 3}
+      propertyPath: _nextCamera
+      value: 
+      objectReference: {fileID: 5044581236286255871}
+    - target: {fileID: 2478306813959618396, guid: 607c34fe3ca0dba4c9dbc8046474a232, type: 3}
+      propertyPath: _currentCamera
+      value: 
+      objectReference: {fileID: 430580737167039763}
+    - target: {fileID: 4893575688373728065, guid: 607c34fe3ca0dba4c9dbc8046474a232, type: 3}
+      propertyPath: _nextCamera
+      value: 
+      objectReference: {fileID: 430580737167039763}
+    - target: {fileID: 4893575688373728065, guid: 607c34fe3ca0dba4c9dbc8046474a232, type: 3}
+      propertyPath: _currentCamera
+      value: 
+      objectReference: {fileID: 5044581236286255871}
     - target: {fileID: 6281180466732900282, guid: 607c34fe3ca0dba4c9dbc8046474a232, type: 3}
       propertyPath: m_LocalPosition.x
       value: 22.684967

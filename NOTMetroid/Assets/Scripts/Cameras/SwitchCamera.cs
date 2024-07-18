@@ -2,11 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class SwitchCamera : MonoBehaviour
 {
-    [SerializeField] private Camera _camera1;
-    [SerializeField] private Camera _camera2;
+    [SerializeField] private Camera _currentCamera;
+    [SerializeField] private Camera _nextCamera;
     [SerializeField] private Vector2 minimapMoveDir;
 
     [SerializeField] private Transform teleportPos;
@@ -30,8 +31,8 @@ public class SwitchCamera : MonoBehaviour
     {
         if (!other.CompareTag("Player")) return;
         
-        _camera1.gameObject.SetActive(false);
-        _camera2.gameObject.SetActive(true);
+        _currentCamera.gameObject.SetActive(false);
+        _nextCamera.gameObject.SetActive(true);
         _minimapMover.ShiftMap(minimapMoveDir);
     }
 }
