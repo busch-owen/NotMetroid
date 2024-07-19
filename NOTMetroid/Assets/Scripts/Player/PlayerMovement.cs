@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.SceneManagement;
@@ -29,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     private LayerMask _defaultLayer;
     private LayerMask _invulnLayer;
     public float currentHealth;
+    private bool isFlashing;
 
     private EnergyCounter _energyCounter;
     [SerializeField]protected string currentScene;
@@ -39,6 +41,10 @@ public class PlayerMovement : MonoBehaviour
     private AudioSource _audioSource;
     //[SerializeField] private AudioClip landSFX;
     [SerializeField] private AudioClip jumpSFX;
+    
+    private GameObject enemySprite;
+    private SpriteRenderer spriteRenderer;
+    private Color originalColor;
 
     #endregion
     
@@ -56,6 +62,9 @@ public class PlayerMovement : MonoBehaviour
         
         currentHealth = characterStats.Health;
         _energyCounter.RecalculateEnergy((int)currentHealth);
+        
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        originalColor = spriteRenderer.color;
     }
 
     private void Update()
@@ -235,14 +244,48 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, wallJumpDetectDistance);
     }
+    
+    void CancleCoroutine()
+    {
+        StopAllCoroutines();
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("EnemyProjectile"))
         {
+            StartFlash();
             _projectile = other.GetComponent<Projectile>();
             currentHealth -=_projectile._damage;
            _energyCounter.RecalculateEnergy((int)currentHealth);
+           Invoke("CancleCoroutine",1.0f);
         }
+    }
+    
+    void StartFlash()
+    {
+        StartCoroutine(FlashCoroutine());
+    }
+
+    IEnumerator FlashCoroutine()
+    {
+        Debug.Log("Flash");
+
+        Color flashColor = Color.red;
+
+        for (int i = 0; i < 1; i++)
+        {
+            if (!isFlashing)
+            {
+                isFlashing = true;
+                spriteRenderer.color = flashColor;
+                yield return new WaitForSeconds(0.2f);
+                spriteRenderer.color = originalColor;
+                yield return new WaitForSeconds(0.2f);
+            }
+        
+        }
+
+        isFlashing = false;
     }
 }
