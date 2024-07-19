@@ -19,8 +19,11 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float groundDetectDistance;
     [SerializeField] private Vector2 groundDetectSize;
+    [SerializeField] private float FloorDetectDistance;
+    [SerializeField] private Vector2 FloorDetectSize;
     [SerializeField] private float wallJumpDetectDistance;
     [SerializeField] private CharacterStatsSO characterStats;
+    [SerializeField] private float jumpTime;
 
     [SerializeField] private LayerMask ignorePlayer;
     private LayerMask _defaultLayer;
@@ -49,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
         _animController = GetComponent<PlayerAnimationController>();
         _audioSource = GetComponent<AudioSource>();
         _energyCounter = FindObjectOfType<EnergyCounter>();
+        Physics2D.queriesHitTriggers = false;
         
         currentHealth = characterStats.Health;
         _energyCounter.RecalculateEnergy((int)currentHealth);
@@ -171,6 +175,12 @@ public class PlayerMovement : MonoBehaviour
     private void Jump()
     {
         _rb.velocity = new Vector2(_rb.velocity.x, characterStats.JumpSpeed * Time.fixedDeltaTime);
+        Invoke("StopJump",jumpTime);
+    }
+
+    private void StopJump()
+    {
+        _jumping = false;
     }
 
     private void WallJump()
@@ -192,8 +202,8 @@ public class PlayerMovement : MonoBehaviour
     private void RoofCheck()
     {
         RaycastHit2D hit = Physics2D.BoxCast(new Vector2(transform.position.x, 
-                transform.position.y + groundDetectDistance), 
-            groundDetectSize, 0f, Vector2.zero, Mathf.Infinity, ignorePlayer);
+                transform.position.y + FloorDetectDistance), 
+            FloorDetectSize, 0f, Vector2.zero, Mathf.Infinity, ignorePlayer);
         if (hit)
         {
             CancelJump();
@@ -208,10 +218,10 @@ public class PlayerMovement : MonoBehaviour
         
         RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 1.1f), Vector2.down, height - 0.5f, ignorePlayer);
         
-        if (Vector2.Distance(transform.position, hit.point) > height)
+       /* if (Vector2.Distance(transform.position, hit.point) > height)
         {
             _jumping = false;
-        }
+        }*/
     }
     
     #endregion
@@ -221,7 +231,7 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.color = Color.green;
         Gizmos.DrawWireCube(new Vector2(transform.position.x, transform.position.y - groundDetectDistance), groundDetectSize);
         Gizmos.color = Color.magenta;
-        Gizmos.DrawWireCube(new Vector2(transform.position.x, transform.position.y + groundDetectDistance), groundDetectSize);
+        Gizmos.DrawWireCube(new Vector2(transform.position.x, transform.position.y + FloorDetectDistance), FloorDetectSize);
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, wallJumpDetectDistance);
     }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -66,11 +67,52 @@ public class Enemy : MonoBehaviour
         #region directionCalculation
         
         Vector3 localDir = Quaternion.Inverse(transform.rotation) * (target.transform.position - transform.position);
+
+        /*var Higher = Math.Max(localDir.x, localDir.y);
+
+        var Lower = Math.Min(localDir.x, localDir.y);
+
         
-        bool isForward = localDir.z > 0;
+        if (Higher == localDir.x)
+        {
+            bool UpDown = true;
+            bool LeftRight = false;
+        }
+
+        if (Higher == localDir.y)
+        {
+            bool LeftRight = true;
+            bool UpDown = false;
+        }
+        
+        if (Higher > 0)
+        {
+            Higher = 1.0f;
+        }
+
+        if (Higher < 0)
+        {
+            Higher = -1.0f;
+        }
+
+
+        Lower = 0.0f;
+        
+        
+
+        Debug.Log(Mathf.Max(localDir.x, localDir.y));*/
+        
+        
+        
+        
+        
+        
+        
+        bool isDown = localDir.y < 0;
         bool isUp = localDir.y > 0;
         bool isRight = localDir.x > 0;
         bool isLeft = localDir.x < 0;
+        
         #endregion
 
         #region Distance Calculation
@@ -150,6 +192,7 @@ public class Enemy : MonoBehaviour
             {
                 _movement.MoveRight();
                 //Debug.Log("Right");
+                
             }
 
             if (isLeft)
@@ -197,6 +240,21 @@ public class Enemy : MonoBehaviour
             _weapon.Shoot(-this.transform.right);
         }
         
+        /*if (canShoot && isUp)
+        {
+            //Debug.Log("up");
+            _weapon.Shoot(this.transform.up);
+            
+        }
+
+        if (canShoot && isDown)
+        {
+            //Debug.Log("down");
+            _weapon.Shoot(-this.transform.up);
+        }*/
+        
+       
+        
         if (currentHealth <= 0)
         {
             Destroy(this.gameObject);
@@ -211,13 +269,13 @@ public class Enemy : MonoBehaviour
         if (other.CompareTag("Projectile"))
         {
             _projectile = other.GetComponent<Projectile>();
-            Debug.Log("EA");
+            //Debug.Log("EA");
             currentHealth -=_projectile._damage;
         }
         if (other.CompareTag("PowerProjectile"))
         {
             _projectile = other.GetComponent<Projectile>();
-            Debug.Log("EA");
+            //Debug.Log("EA");
             currentHealth -=_projectile._damage;
         }
 
@@ -225,14 +283,14 @@ public class Enemy : MonoBehaviour
         {
             if (other.CompareTag("RightPatrolPoint"))
             {
-                Debug.Log("patrolRight");
+                //Debug.Log("patrolRight");
                 _right = false;
                 _left = true;
             }
 
             if (other.CompareTag("LeftPatrolPoint"))// switches patrol point and direction once touched
             {
-                Debug.Log("patrolleft");
+               // Debug.Log("patrolleft");
                 _left = false;
                 _right = true;
             }
