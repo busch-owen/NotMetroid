@@ -248,6 +248,7 @@ public class PlayerMovement : MonoBehaviour
     void CancleCoroutine()
     {
         StopAllCoroutines();
+        spriteRenderer.color = originalColor;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -258,7 +259,7 @@ public class PlayerMovement : MonoBehaviour
             _projectile = other.GetComponent<Projectile>();
             currentHealth -=_projectile._damage;
            _energyCounter.RecalculateEnergy((int)currentHealth);
-           Invoke("CancleCoroutine",1.0f);
+           Invoke("CancleCoroutine",0.5f);
         }
     }
     
@@ -267,14 +268,12 @@ public class PlayerMovement : MonoBehaviour
         StartCoroutine(FlashCoroutine());
     }
 
-    IEnumerator FlashCoroutine()
-    {
+        IEnumerator FlashCoroutine()
+        {
         Debug.Log("Flash");
 
         Color flashColor = Color.red;
-
-        for (int i = 0; i < 1; i++)
-        {
+        
             if (!isFlashing)
             {
                 isFlashing = true;
@@ -284,8 +283,9 @@ public class PlayerMovement : MonoBehaviour
                 yield return new WaitForSeconds(0.2f);
             }
         
+            isFlashing = false;
+            spriteRenderer.color = originalColor;
         }
-
-        isFlashing = false;
-    }
+    
 }
+

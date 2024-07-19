@@ -30,6 +30,8 @@ public class Enemy : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
     private bool isFlashing;
+    [SerializeField] private bool boss;
+    private PolygonCollider2D _polygonCollider2D;
 
 
     private EnemyWeapon _weapon;
@@ -48,6 +50,7 @@ public class Enemy : MonoBehaviour
         enemySprite = GetComponentInChildren<SpriteRenderer>().gameObject;
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         originalColor = spriteRenderer.color;
+        _polygonCollider2D = GetComponent<PolygonCollider2D>();
 
     }
 
@@ -68,6 +71,12 @@ public class Enemy : MonoBehaviour
         inLungeRange = false;
     }
 
+    void BossFlip()
+    {
+        //enemySprite.transform.localScale = new Vector3(-1, 1, 1);
+        _polygonCollider2D.transform.localScale = new Vector3(-3, 3, 3);
+        CancelInvoke("BossFlip");
+    }
 
     void FixedUpdate()
     {
@@ -119,16 +128,33 @@ public class Enemy : MonoBehaviour
         bool isUp = localDir.y > 0;
         bool isRight = localDir.x > 0;
         bool isLeft = localDir.x < 0;
-
-        if (isRight)
+        
+        if(!boss)
         {
-            enemySprite.transform.localScale = new Vector3(-1, 1, 1);
-        }
-        else
-        {
-            enemySprite.transform.localScale = new Vector3(1, 1, 1);
+            if (isRight)
+            {
+                enemySprite.transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else
+            {
+                enemySprite.transform.localScale = new Vector3(1, 1, 1);
+            }
         }
 
+        if (boss)
+        {   if(isLeft)
+            {
+                //enemySprite.transform.localScale = new Vector3(1, 1, 1);
+                _polygonCollider2D.transform.localScale = new Vector3(3, 3, 3);
+            }
+            else
+            {
+                Invoke("BossFlip",2.0f);
+            }
+        }
+        
+        
+        
         #endregion
 
         #region Distance Calculation
@@ -286,6 +312,7 @@ public class Enemy : MonoBehaviour
     void CancleCoroutine()
     {
         StopAllCoroutines();
+        spriteRenderer.color = originalColor;
     }
 
     void OnTriggerEnter2D(Collider2D other) // die when hit by bullet
@@ -296,7 +323,7 @@ public class Enemy : MonoBehaviour
             _projectile = other.GetComponent<Projectile>();
             //Debug.Log("EA");
             currentHealth -= _projectile._damage;
-            Invoke("CancleCoroutine",1.0f);
+            Invoke("CancleCoroutine",0.5f);
 
         }
 
@@ -306,7 +333,7 @@ public class Enemy : MonoBehaviour
             _projectile = other.GetComponent<Projectile>();
             //Debug.Log("EA");
             currentHealth -= _projectile._damage;
-            Invoke("CancleCoroutine",1.0f);
+            Invoke("CancleCoroutine",0.5f);
         }
 
         if (patroling)
@@ -336,14 +363,18 @@ public class Enemy : MonoBehaviour
             Debug.Log("Flash");
 
             Color flashColor = Color.red;
-
-            for (int i = 0; i < 1; i++) // Flash 5 times (adjust as needed)
+        
+            if (!isFlashing)
             {
+                isFlashing = true;
                 spriteRenderer.color = flashColor;
-                yield return new WaitForSeconds(0.2f); // Flash duration
+                yield return new WaitForSeconds(0.2f);
                 spriteRenderer.color = originalColor;
-                yield return new WaitForSeconds(0.2f); // Delay between flashes
+                yield return new WaitForSeconds(0.2f);
             }
+        
+            isFlashing = false;
+            spriteRenderer.color = originalColor;
         }
     }
 }
